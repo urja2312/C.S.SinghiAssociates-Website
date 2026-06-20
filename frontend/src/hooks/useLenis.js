@@ -44,6 +44,10 @@ export function useLenis() {
     gsap.ticker.add(tickerFn);
     gsap.ticker.lagSmoothing(0);
 
+    // After lenis is wired in, force ScrollTrigger to re-evaluate
+    // all triggers against the new scroll source.
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+
     return () => {
       gsap.ticker.remove(tickerFn);
       lenis.destroy();

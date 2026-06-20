@@ -61,8 +61,13 @@ export default function About() {
         },
       });
 
-      // Stat counters
-      document.querySelectorAll(".stat__value").forEach((el) => {
+      // Stat counters — IntersectionObserver as a fail-safe (works even if
+      // ScrollTrigger misses an event during programmatic Lenis scroll).
+      const counterEls = document.querySelectorAll(".stat__value");
+      const played = new WeakSet();
+      const playCounter = (el) => {
+        if (played.has(el)) return;
+        played.add(el);
         const target = parseInt(el.dataset.value, 10);
         const suffix = el.dataset.suffix || "";
         const obj = { val: 0 };
@@ -70,12 +75,20 @@ export default function About() {
           val: target,
           duration: 1.6,
           ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 85%", once: true },
           onUpdate: () => {
             el.textContent = Math.round(obj.val) + suffix;
           },
         });
-      });
+      };
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) playCounter(e.target);
+          });
+        },
+        { threshold: 0.4 }
+      );
+      counterEls.forEach((el) => io.observe(el));
 
       gsap.from(".value", {
         opacity: 0,
