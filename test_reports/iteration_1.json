@@ -1,0 +1,44 @@
+{
+  "summary": "Full e2e testing of C.S. Singhi & Associates portfolio site. Backend: 7/7 pytest cases pass (root, contact CRUD, careers CRUD, validation). Frontend: 39/40 functional UI checks pass (hero, nav, search overlay with Cmd/Ctrl+K, section navigation, about values & probono, services 01-06, projects horizontal rail + Sky Gangtok drawer open/close, team principal/architect/grid, careers mailto links, contact form submit + validation, footer, responsive 768px mobile menu). One minor UX nuance: about-stats counters (25, 12+, 3, 100%) animate correctly on natural wheel scroll but do NOT animate when section is reached via Lenis scrollTo (hero-nav anchor click) — they stay at 0/0+/0/0%. Not a blocker, real users wheel-scroll naturally, but worth noting.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [
+      {
+        "flow": "About stat counters",
+        "issue": "GSAP ScrollTrigger for the .stat__value counters does not fire when the About section is reached via Lenis scrollTo (hero-nav-about / mobile-nav-about anchor click). Counters remain at 0/0+/0/0%. On natural wheel scroll they animate correctly to 25/12+/3/100%. Likely fix: call ScrollTrigger.update() / ScrollTrigger.refresh() inside the Lenis raf loop, or add lenis.on('scroll', ScrollTrigger.update) in useLenis.js so ScrollTrigger stays in sync with Lenis virtual scroll position.",
+        "affected_selectors": ["[data-testid=\"about-stats\"]", ".stat__value"]
+      }
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "(Optional / minor) Wire Lenis scroll into GSAP ScrollTrigger so .stat__value counters animate when section is reached via in-page nav click. Suggested: in useLenis.js, add `lenis.on('scroll', ScrollTrigger.update)` and call `gsap.ticker.add((time)=>lenis.raf(time*1000)); gsap.ticker.lagSmoothing(0);`."
+  ],
+  "critical_code_review_comments": [
+    "server.py: logger is referenced inside route handlers (line 80, 99) but `logger = logging.getLogger(__name__)` is defined further down at line 127 — this works at request time only because routes are called lazily, but it is fragile. Move logging.basicConfig + logger definition above the route handlers.",
+    "server.py: @app.on_event(\"shutdown\") is deprecated in newer FastAPI versions; consider migrating to lifespan context manager.",
+    "About.jsx counter logic uses GSAP ScrollTrigger but the site uses Lenis smooth scroll — without ScrollTrigger.update bound to lenis.on('scroll'), animations driven by ScrollTrigger may not fire after a programmatic Lenis scroll. Already observed for stat counters.",
+    "Mongo documents store created_at as ISO string then code re-parses to datetime on list — fine, but inconsistent storage type; consider storing as native BSON datetime via motor."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py"
+  ],
+  "success_rate": {
+    "backend": "100%",
+    "frontend": "97.5%"
+  },
+  "test_credentials": "None required (no auth in app)",
+  "seed_data_creation": "Created 1 TEST_ contact submission and 1 TEST_ job application via pytest. They persist in MongoDB collections contact_submissions and job_applications.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest file at /app/backend/tests/backend_test.py - run via: pytest /app/backend/tests/backend_test.py -v. The app uses Lenis smooth scroll + GSAP ScrollTrigger; to test animations triggered by ScrollTrigger, use page.mouse.wheel(0,200) repeated calls — clicking hero-nav anchors invokes lenis.scrollTo which may not trigger ScrollTrigger. Search overlay opens with Control+K (or Meta+K on mac). Project drawer opens by clicking any project card; close via [data-testid=project-drawer-close]. Contact POST persists to MongoDB and the GET endpoint returns the new row.",
+  "rca of the issue": "About counters issue RCA: GSAP ScrollTrigger reads native window scroll position via scroll events. Lenis hijacks scrolling and translates content with CSS transform while keeping native scroll mostly static. When user clicks an in-page anchor, Lenis animates the transform/scroll; GSAP's scroll events may not arrive on the trigger element so ScrollTrigger never fires its onEnter. Fix: subscribe ScrollTrigger.update to lenis 'scroll' event and run lenis.raf inside gsap.ticker (standard Lenis+GSAP integration pattern)."
+}
