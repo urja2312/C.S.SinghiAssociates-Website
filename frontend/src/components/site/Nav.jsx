@@ -31,27 +31,22 @@ export default function Nav({ onSearchOpen }) {
     <>
       <nav className="nav" ref={navRef} data-testid="site-nav">
         <div className="nav__inner">
-          {/* LEFT — Logo + wordmark */}
+          {/* LEFT — Logo only (no wordmark) */}
           <a
             href="#top"
             className="nav__brand"
             data-testid="nav-brand"
+            aria-label="C.S. Singhi & Associates — home"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("top");
             }}
           >
-            <span className="nav__logo-wrap">
-              <img
-                src={ASSETS.logo}
-                alt="C.S. Singhi & Associates"
-                className="nav__logo"
-              />
-            </span>
-            <span className="nav__wordmark">
-              <span className="nav__name">C.S. Singhi &amp; Associates</span>
-              <span className="nav__est">Architecture · Design · Sikkim</span>
-            </span>
+            <img
+              src={ASSETS.logo}
+              alt="C.S. Singhi & Associates"
+              className="nav__logo"
+            />
           </a>
 
           {/* CENTER — Primary navigation */}
@@ -97,7 +92,7 @@ export default function Nav({ onSearchOpen }) {
               data-testid="nav-contact-cta"
               onClick={handleNavClick("contact")}
             >
-              Contact Us
+              Contact
             </a>
             <button
               className="nav__hamburger"

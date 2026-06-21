@@ -19,6 +19,18 @@
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
+        <!-- SVG filter that converts the logo PNG's luminance to alpha,
+             so its baked-in black background renders as fully transparent. -->
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <filter id="lum-alpha" color-interpolation-filters="sRGB">
+                <feColorMatrix type="matrix" values="
+                    1.05 0    0    0  0
+                    0    1.05 0    0  0
+                    0    0    1.05 0  0
+                    0.62 0.62 0.62 0  0
+                "/>
+            </filter>
+        </svg>
         <div id="progress-bar"></div>
         <div id="root"></div>
     </body>

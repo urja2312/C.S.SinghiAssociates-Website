@@ -52,7 +52,7 @@
     --duration-slow: 1.2s;
 
     /* Layout */
-    --nav-height: 104px;
+    --nav-height: 132px;
     --max-width: 1480px;
     --gutter: clamp(1.25rem, 4.5vw, 4.5rem);
 }
@@ -207,67 +207,32 @@ button {
 .nav__brand {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
     flex-shrink: 0;
-}
-
-.nav__logo-wrap {
-    width: 76px;
-    height: 76px;
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     transition: transform 350ms var(--ease-out);
 }
 
-.nav__brand:hover .nav__logo-wrap {
-    transform: rotate(-3deg) scale(1.04);
+.nav__brand:hover {
+    transform: scale(1.03);
 }
 
-/* Logo PNG ships with a black background plate.
-   Use mix-blend-mode: screen so the black drops out and the
-   gold mark floats on the canvas. */
+/* Logo PNG carries a black backplate; the SVG luminance-to-alpha filter
+   in index.html (#lum-alpha) renders that black as fully transparent
+   so only the gold mark remains. */
 .nav__logo {
-    width: 100%;
-    height: 100%;
+    height: 108px;
+    width: auto;
+    max-width: 220px;
     object-fit: contain;
-    mix-blend-mode: screen;
-    filter: brightness(1.08) contrast(1.06);
+    filter: url(#lum-alpha) drop-shadow(0 6px 16px rgba(26, 35, 50, 0.18));
+    transition: height 350ms var(--ease-out);
 }
 
-.nav--solid .nav__logo-wrap {
-    width: 62px;
-    height: 62px;
+.nav--solid .nav__logo {
+    height: 84px;
 }
 
 :root {
-    /* extras */
     --nav-height-mobile: 76px;
-}
-
-.nav__wordmark {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-}
-
-.nav__name {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink);
-}
-
-.nav__est {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.22em;
-    color: var(--concrete);
-    text-transform: uppercase;
-    margin-top: 0.15rem;
 }
 
 /* CENTER — primary nav menu */
@@ -303,14 +268,14 @@ button {
     right: 0;
     bottom: -3px;
     height: 1px;
-    background: var(--wood);
+    background: var(--blueprint);
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 350ms var(--ease-out);
 }
 
 .nav__menu a:hover {
-    color: var(--wood-dark);
+    color: var(--blueprint);
 }
 
 .nav__menu a:hover::after {
@@ -707,51 +672,53 @@ button {
     will-change: transform;
 }
 
-/* The building — large, centred, blended */
+/* The building — monumental, partially off-canvas, blended */
 .hero__building {
     position: absolute;
     top: 50%;
-    left: 55%;
-    transform: translate(-50%, -48%);
-    width: clamp(560px, 60vw, 900px);
+    left: 72%;
+    transform: translate(-50%, -50%);
+    width: clamp(820px, 90vw, 1400px);
     height: auto;
-    max-height: 92vh;
+    max-height: 130vh;
     object-fit: contain;
     z-index: 2;
     /* Drop the bright paper background into the canvas */
     mix-blend-mode: multiply;
-    filter: saturate(0.78) contrast(1.04)
-        drop-shadow(0 36px 80px rgba(26, 35, 50, 0.25));
-    /* Feather edges so the paper dissolves into the grid */
+    filter: saturate(0.78) contrast(1.05)
+        drop-shadow(0 50px 100px rgba(26, 35, 50, 0.22));
+    /* Feather all edges to dissolve the rectangular paper */
     -webkit-mask-image: radial-gradient(
-        ellipse 70% 80% at 50% 50%,
+        ellipse 62% 70% at 50% 50%,
         black 0%,
-        black 55%,
-        rgba(0, 0, 0, 0.55) 78%,
-        transparent 97%
+        black 45%,
+        rgba(0, 0, 0, 0.55) 72%,
+        rgba(0, 0, 0, 0.2) 90%,
+        transparent 100%
     );
     mask-image: radial-gradient(
-        ellipse 70% 80% at 50% 50%,
+        ellipse 62% 70% at 50% 50%,
         black 0%,
-        black 55%,
-        rgba(0, 0, 0, 0.55) 78%,
-        transparent 97%
+        black 45%,
+        rgba(0, 0, 0, 0.55) 72%,
+        rgba(0, 0, 0, 0.2) 90%,
+        transparent 100%
     );
     animation:
         hero-building-in 1.6s var(--ease-out) 0.3s both,
-        hero-building-float 11s ease-in-out 2.2s infinite;
+        hero-building-float 12s ease-in-out 2s infinite;
     will-change: transform;
     pointer-events: none;
 }
 
 @keyframes hero-building-in {
-    from { opacity: 0; transform: translate(-50%, -42%) scale(0.96); }
-    to   { opacity: 1; transform: translate(-50%, -48%) scale(1);    }
+    from { opacity: 0; transform: translate(-50%, -44%) scale(0.96); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1);    }
 }
 
 @keyframes hero-building-float {
-    0%, 100% { transform: translate(-50%, -48%) scale(1); }
-    50%      { transform: translate(-50%, -49.5%) scale(1.006); }
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50%      { transform: translate(-50%, -51.5%) scale(1.008); }
 }
 
 /* Architect drawing notes — pinned at the four edges */
@@ -796,14 +763,15 @@ button {
     to   { opacity: 0.85; transform: translateY(0); }
 }
 
-/* Title block — overlays bottom-left, composed WITH the illustration */
+/* Title block — anchored centre-left, away from the building */
 .hero__title-block {
     position: absolute;
-    bottom: 10vh;
+    top: 50%;
+    transform: translateY(-50%);
     left: var(--gutter);
     z-index: 4;
-    max-width: min(640px, 50vw);
-    animation: hero-panel-in 1s var(--ease-out) 0.3s both;
+    max-width: min(620px, 48vw);
+    animation: hero-panel-in 1.1s var(--ease-out) 0.3s both;
     will-change: transform;
 }
 
@@ -917,16 +885,15 @@ button {
 @media (max-width: 1100px) {
     .hero__title-block {
         max-width: 70vw;
-        bottom: 13vh;
+        top: 38%;
     }
     .hero__building {
-        left: 60%;
-        width: clamp(420px, 70vw, 720px);
+        left: 68%;
+        width: clamp(620px, 90vw, 900px);
         opacity: 0.85;
     }
-    .hero__note--tr,
-    .hero__note--br {
-        display: none;
+    .nav__logo {
+        height: 92px;
     }
 }
 
@@ -935,28 +902,28 @@ button {
         padding-top: calc(var(--nav-height) + 1rem);
     }
     .hero__building {
-        top: 38%;
+        top: 32%;
         left: 50%;
-        width: 110vw;
+        width: 130vw;
         max-height: 60vh;
-        opacity: 0.65;
+        opacity: 0.6;
     }
     .hero__title-block {
         position: relative;
-        bottom: auto;
+        top: auto;
+        transform: none;
         left: 0;
-        margin: 50vh var(--gutter) 0;
+        margin: 52vh var(--gutter) 0;
         max-width: none;
     }
     .hero__title {
         font-size: clamp(2.25rem, 11vw, 3.5rem);
     }
-    .hero__spec {
-        font-size: 0.6rem;
-        gap: 0.75rem;
+    .nav__logo {
+        height: 64px;
     }
-    .hero__note {
-        display: none;
+    .nav--solid .nav__logo {
+        height: 56px;
     }
 }
 
