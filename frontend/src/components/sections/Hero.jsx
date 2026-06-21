@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ASSETS, NAV_LINKS } from "../../lib/siteData";
-import { scrollToSection } from "../../hooks/useLenis";
+import { ASSETS } from "../../lib/siteData";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const heroRef = useRef(null);
   const imgRef = useRef(null);
+  const auraRef = useRef(null);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -16,21 +16,39 @@ export default function Hero() {
     ).matches;
     if (prefersReduced) return;
 
-    // Subtle parallax drift on the hero image
-    const tween = gsap.to(imgRef.current, {
-      yPercent: -8,
+    // Subtle premium scroll choreography:
+    //  - building rises slightly upward on scroll
+    //  - scales gently as if drawing closer to the viewer
+    //  - warm aura behind it expands
+    const buildingTween = gsap.to(imgRef.current, {
+      yPercent: -12,
+      scale: 1.06,
       ease: "none",
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: true,
+        scrub: 0.8,
+      },
+    });
+
+    const auraTween = gsap.to(auraRef.current, {
+      scale: 1.18,
+      opacity: 0.7,
+      ease: "none",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.8,
       },
     });
 
     return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
+      buildingTween.scrollTrigger?.kill();
+      buildingTween.kill();
+      auraTween.scrollTrigger?.kill();
+      auraTween.kill();
     };
   }, []);
 
@@ -41,23 +59,17 @@ export default function Hero() {
       ref={heroRef}
       data-testid="hero-section"
     >
-      {/* Background blueprint grid + warm canvas */}
+      {/* Layered architectural ambience — unifies the two sides */}
       <div className="hero__canvas" aria-hidden="true" />
       <div className="blueprint-grid" aria-hidden="true" />
-      <div className="structural-glow" aria-hidden="true" />
-
-      <div className="hero__corner">
-        <span>
-          <span className="dot" /> SILVER JUBILEE · 2026
-        </span>
-        <span>27.3389° N · 88.6065° E</span>
-      </div>
+      <div className="hero__aura" ref={auraRef} aria-hidden="true" />
+      <div className="hero__seam" aria-hidden="true" />
 
       <div className="hero__split">
         {/* LEFT: copy panel */}
         <div className="hero__panel" data-testid="hero-panel">
           <div className="hero__eyebrow">
-            <span style={{ width: 24, height: 1, background: "currentColor" }} />
+            <span className="hero__eyebrow-rule" />
             Gangtok · Sikkim · Est. 2001
           </div>
           <h1 className="hero__title" data-testid="hero-title">
@@ -73,24 +85,14 @@ export default function Hero() {
             A new era begins.
           </p>
           <div className="hero__rule" />
-          <nav className="hero__nav" data-testid="hero-nav">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                data-testid={`hero-nav-${link.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.id);
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          <p className="hero__lede">
+            An architectural practice quietly shaping the Himalayan skyline —
+            from sacred monasteries to luxury residences, every line drawn with
+            intention.
+          </p>
         </div>
 
-        {/* RIGHT: building render, free-floating */}
+        {/* RIGHT: building render, free-floating, blended */}
         <div className="hero__stage" aria-hidden="true">
           <img
             ref={imgRef}
@@ -98,16 +100,11 @@ export default function Hero() {
             alt="Exploded axonometric architectural drawing of a C.S. Singhi & Associates mixed-use tower"
             className="hero__building"
           />
-          <div className="hero__stage-meta">
-            <span>SCALE 1:200</span>
-            <span>SHEET 01 / 12</span>
-            <span>PROJECT 2026-A</span>
-          </div>
         </div>
       </div>
 
       <div className="hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
+        <span>Scroll to explore</span>
         <span className="hero__scroll-line" />
       </div>
     </section>

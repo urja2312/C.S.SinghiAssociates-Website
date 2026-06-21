@@ -31,6 +31,7 @@ export default function Nav({ onSearchOpen }) {
     <>
       <nav className="nav" ref={navRef} data-testid="site-nav">
         <div className="nav__inner">
+          {/* LEFT — Logo + wordmark */}
           <a
             href="#top"
             className="nav__brand"
@@ -40,17 +41,35 @@ export default function Nav({ onSearchOpen }) {
               scrollToSection("top");
             }}
           >
-            <img
-              src={ASSETS.logo}
-              alt="C.S. Singhi & Associates"
-              className="nav__compass"
-            />
-            <div className="nav__wordmark">
+            <span className="nav__logo-wrap">
+              <img
+                src={ASSETS.logo}
+                alt="C.S. Singhi & Associates"
+                className="nav__logo"
+              />
+            </span>
+            <span className="nav__wordmark">
               <span className="nav__name">C.S. Singhi &amp; Associates</span>
-              <span className="nav__est">Est. 2001 · Gangtok · Sikkim</span>
-            </div>
+              <span className="nav__est">Architecture · Design · Sikkim</span>
+            </span>
           </a>
 
+          {/* CENTER — Primary navigation */}
+          <ul className="nav__menu" data-testid="nav-menu">
+            {NAV_LINKS.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  onClick={handleNavClick(link.id)}
+                  data-testid={`nav-link-${link.id}`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* RIGHT — Search + Contact CTA + mobile toggle */}
           <div className="nav__actions">
             <button
               className="nav__search-btn"
