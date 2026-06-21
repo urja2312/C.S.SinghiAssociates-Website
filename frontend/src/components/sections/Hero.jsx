@@ -92,10 +92,6 @@ export default function Hero() {
 
         {/* RIGHT: building render, free-floating */}
         <div className="hero__stage" aria-hidden="true">
-          <div className="hero__stage-label">
-            <span className="dot" />
-            EXPLODED AXONOMETRIC · MIXED-USE TOWER · GANGTOK
-          </div>
           <img
             ref={imgRef}
             src={ASSETS.hero}
