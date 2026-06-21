@@ -44,7 +44,6 @@ export default function Nav({ onSearchOpen }) {
               src={ASSETS.logo}
               alt="C.S. Singhi & Associates"
               className="nav__compass"
-              style={{ objectFit: "contain" }}
             />
             <div className="nav__wordmark">
               <span className="nav__name">C.S. Singhi &amp; Associates</span>
