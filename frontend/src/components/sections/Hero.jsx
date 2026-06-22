@@ -128,32 +128,20 @@ export default function Hero() {
           Architecture, interior, and turnkey practice shaping the skyline of
           Sikkim — quietly, deliberately, since 2001.
         </p>
-        <a
-          href="#projects"
-          className="hero__cta"
-          data-testid="hero-cta"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection("projects");
-          }}
-        >
-          <span>Explore our work</span>
-          <svg
-            width="38"
-            height="10"
-            viewBox="0 0 38 10"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M0 5h35m0 0L31 1m4 4L31 9"
-              stroke="currentColor"
-              strokeWidth="1.25"
-              strokeLinecap="square"
-            />
-          </svg>
-        </a>
       </div>
+
+      <a
+        href="#about"
+        className="hero__scroll"
+        data-testid="hero-scroll"
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection("about");
+        }}
+      >
+        <span>Scroll</span>
+        <span className="hero__scroll-arrow" aria-hidden="true">↓</span>
+      </a>
     </section>
   );
 }
