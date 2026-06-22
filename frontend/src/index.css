@@ -2702,21 +2702,25 @@ button {
 
 .about__layout {
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    gap: clamp(2rem, 5vw, 5rem);
-    align-items: start;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2.5rem, 7vw, 7rem);
+    align-items: stretch;
 }
 
-.about__left { padding-top: 1rem; }
+.about__left {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
 
 .about__heading {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 9vw, 7.5rem);
+    font-size: clamp(2.5rem, 7vw, 5.75rem);
     font-weight: 500;
     line-height: 0.95;
     letter-spacing: -0.02em;
     color: #f3eede;
-    margin: 1.25rem 0 2.25rem;
+    margin: 1.25rem 0 2rem;
     text-transform: none;
     display: flex;
     align-items: baseline;
@@ -2749,7 +2753,9 @@ button {
 .about__right {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0.9rem;
+    height: 100%;
+    justify-content: space-between;
 }
 
 /* Reusable bordered architectural card */
@@ -2759,23 +2765,23 @@ button {
     border-radius: 6px;
     background: rgba(11, 19, 32, 0.4);
     backdrop-filter: blur(4px);
-    padding: 2rem 2.25rem;
+    padding: 1rem 1.4rem 1.1rem;
 }
 
 .card__title {
     font-family: var(--font-sans);
-    font-size: 0.95rem;
+    font-size: 0.78rem;
     font-weight: 400;
     color: rgba(216, 178, 122, 0.9);
-    margin-bottom: 1.75rem;
+    margin-bottom: 0.85rem;
     letter-spacing: 0.01em;
 }
 
 /* ---- Timeline ---- */
 .tl__track {
     position: relative;
-    height: 14px;
-    margin: 0.5rem 0 1.5rem;
+    height: 10px;
+    margin: 0.25rem 0 0.75rem;
 }
 
 .tl__track-line,
@@ -2822,23 +2828,23 @@ button {
 
 .tl__year {
     font-family: var(--font-sans);
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #f3eede;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 
 .tl__title {
     font-family: var(--font-sans);
-    font-size: 0.86rem;
+    font-size: 0.78rem;
     color: rgba(243, 238, 222, 0.88);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
     line-height: 1.25;
 }
 
 .tl__desc {
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 0.66rem;
     color: rgba(243, 238, 222, 0.55);
     line-height: 1.4;
 }
@@ -2852,21 +2858,21 @@ button {
     display: block;
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 4rem;
-    line-height: 0.8;
+    font-size: 2rem;
+    line-height: 0.7;
     color: var(--wood);
-    margin: 0.5rem 0 0.25rem;
+    margin: 0 0 0;
 }
 
 .purpose__quote {
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(1.1rem, 1.5vw, 1.45rem);
-    line-height: 1.55;
+    font-size: clamp(0.85rem, 1.05vw, 1rem);
+    line-height: 1.45;
     color: #f7f1de;
-    margin: 0.25rem 0 1.5rem;
-    padding-left: 1.25rem;
+    margin: 0.15rem 0 0.7rem;
+    padding-left: 0.9rem;
     border-left: 1px solid rgba(216, 178, 122, 0.5);
 }
 
