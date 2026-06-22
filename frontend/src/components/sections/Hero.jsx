@@ -2,14 +2,16 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ASSETS } from "../../lib/siteData";
+import { scrollToSection } from "../../hooks/useLenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const heroRef = useRef(null);
   const imgRef = useRef(null);
-  const auraRef = useRef(null);
+  const haloRef = useRef(null);
   const titleRef = useRef(null);
+  const gridRef = useRef(null);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -17,44 +19,55 @@ export default function Hero() {
     ).matches;
     if (prefersReduced) return;
 
-    // Premium scroll choreography — three layers, three rates.
+    // Layered scroll choreography — three rates of motion for real depth.
     const buildingTween = gsap.to(imgRef.current, {
       yPercent: -8,
-      scale: 1.07,
+      scale: 1.1,
       ease: "none",
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: 0.8,
+        scrub: 1,
       },
     });
 
-    const auraTween = gsap.to(auraRef.current, {
-      scale: 1.18,
-      opacity: 0.65,
+    const haloTween = gsap.to(haloRef.current, {
+      scale: 1.2,
+      opacity: 0.7,
       ease: "none",
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: 0.8,
+        scrub: 1,
+      },
+    });
+
+    const gridTween = gsap.to(gridRef.current, {
+      yPercent: 4,
+      ease: "none",
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
       },
     });
 
     const titleTween = gsap.to(titleRef.current, {
-      yPercent: -6,
+      yPercent: -5,
       ease: "none",
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
         end: "bottom top",
-        scrub: 0.8,
+        scrub: 1,
       },
     });
 
     return () => {
-      [buildingTween, auraTween, titleTween].forEach((t) => {
+      [buildingTween, haloTween, gridTween, titleTween].forEach((t) => {
         t.scrollTrigger?.kill();
         t.kill();
       });
@@ -68,12 +81,28 @@ export default function Hero() {
       ref={heroRef}
       data-testid="hero-section"
     >
-      {/* Layers — all in service of the building, no UI chrome */}
-      <div className="hero__grid" aria-hidden="true" />
+      {/* Background layers */}
+      <div className="hero__grid" ref={gridRef} aria-hidden="true" />
       <div className="hero__wash" aria-hidden="true" />
-      <div className="hero__halo" ref={auraRef} aria-hidden="true" />
+      <div className="hero__halo" ref={haloRef} aria-hidden="true" />
 
-      {/* The architecture — monumental, blended, partially off-canvas */}
+      {/* Gold corner crosses — architectural drawing marks */}
+      <span className="hero__cross hero__cross--tl" aria-hidden="true">+</span>
+      <span className="hero__cross hero__cross--tr" aria-hidden="true">+</span>
+      <span className="hero__cross hero__cross--bl" aria-hidden="true">+</span>
+      <span className="hero__cross hero__cross--br" aria-hidden="true">+</span>
+      <span className="hero__cross hero__cross--m1" aria-hidden="true">+</span>
+      <span className="hero__cross hero__cross--m2" aria-hidden="true">+</span>
+
+      {/* Vertical edge labels — gold mono text */}
+      <span className="hero__edge hero__edge--left" aria-hidden="true">
+        EST · 2001
+      </span>
+      <span className="hero__edge hero__edge--right" aria-hidden="true">
+        27.3389° N · 88.6065° E
+      </span>
+
+      {/* The architecture — monumental, blended */}
       <img
         ref={imgRef}
         src={ASSETS.hero}
@@ -81,7 +110,7 @@ export default function Hero() {
         className="hero__building"
       />
 
-      {/* Title + lede — the only copy in the hero */}
+      {/* Title block — left-anchored editorial composition */}
       <div className="hero__title-block" ref={titleRef} data-testid="hero-panel">
         <div className="hero__eyebrow">
           <span className="hero__eyebrow-rule" />
@@ -99,6 +128,31 @@ export default function Hero() {
           Architecture, interior, and turnkey practice shaping the skyline of
           Sikkim — quietly, deliberately, since 2001.
         </p>
+        <a
+          href="#projects"
+          className="hero__cta"
+          data-testid="hero-cta"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("projects");
+          }}
+        >
+          <span>Explore our work</span>
+          <svg
+            width="38"
+            height="10"
+            viewBox="0 0 38 10"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 5h35m0 0L31 1m4 4L31 9"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="square"
+            />
+          </svg>
+        </a>
       </div>
     </section>
   );

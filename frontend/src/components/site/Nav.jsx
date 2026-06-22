@@ -43,7 +43,7 @@ export default function Nav({ onSearchOpen }) {
             }}
           >
             <img
-              src={ASSETS.logo}
+              src={ASSETS.logoIcon}
               alt="C.S. Singhi & Associates"
               className="nav__logo"
             />
