@@ -717,7 +717,7 @@ button {
     object-fit: contain;
     z-index: 2;
     mix-blend-mode: screen;
-    filter: saturate(1.35) brightness(1.18) contrast(1.18)
+    filter: saturate(1.05) brightness(0.85) contrast(1.05)
         drop-shadow(0 30px 80px rgba(0, 0, 0, 0.45));
     -webkit-mask-image: radial-gradient(
         ellipse 62% 70% at 50% 50%,
