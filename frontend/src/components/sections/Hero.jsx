@@ -94,12 +94,9 @@ export default function Hero() {
       <span className="hero__cross hero__cross--m1" aria-hidden="true">+</span>
       <span className="hero__cross hero__cross--m2" aria-hidden="true">+</span>
 
-      {/* Vertical edge labels — gold mono text */}
+      {/* Vertical edge label — gold mono, left side only */}
       <span className="hero__edge hero__edge--left" aria-hidden="true">
         EST · 2001
-      </span>
-      <span className="hero__edge hero__edge--right" aria-hidden="true">
-        27.3389° N · 88.6065° E
       </span>
 
       {/* The architecture — monumental, blended */}

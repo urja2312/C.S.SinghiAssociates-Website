@@ -176,9 +176,14 @@ button {
     align-items: center;
     padding: 0 var(--gutter);
     color: #f3eede;
-    background: transparent;
-    backdrop-filter: blur(0px);
-    -webkit-backdrop-filter: blur(0px);
+    background: linear-gradient(
+        180deg,
+        rgba(11, 19, 32, 0.78) 0%,
+        rgba(11, 19, 32, 0.45) 70%,
+        rgba(11, 19, 32, 0) 100%
+    );
+    backdrop-filter: blur(10px) saturate(1.1);
+    -webkit-backdrop-filter: blur(10px) saturate(1.1);
     transition:
         background 400ms var(--ease-out),
         backdrop-filter 400ms var(--ease-out),
@@ -700,7 +705,7 @@ button {
     will-change: transform;
 }
 
-/* The building — already gold; just drop the black paper via screen blend */
+/* The building — already gold; sharper render now */
 .hero__building {
     position: absolute;
     top: 52%;
@@ -712,22 +717,22 @@ button {
     object-fit: contain;
     z-index: 2;
     mix-blend-mode: screen;
-    filter: saturate(1.05) brightness(1.02)
-        drop-shadow(0 40px 100px rgba(0, 0, 0, 0.4));
+    filter: saturate(1.35) brightness(1.18) contrast(1.18)
+        drop-shadow(0 30px 80px rgba(0, 0, 0, 0.45));
     -webkit-mask-image: radial-gradient(
-        ellipse 55% 60% at 50% 50%,
+        ellipse 62% 70% at 50% 50%,
         black 0%,
-        black 36%,
-        rgba(0, 0, 0, 0.6) 65%,
-        rgba(0, 0, 0, 0.18) 88%,
+        black 58%,
+        rgba(0, 0, 0, 0.7) 78%,
+        rgba(0, 0, 0, 0.2) 92%,
         transparent 100%
     );
     mask-image: radial-gradient(
-        ellipse 55% 60% at 50% 50%,
+        ellipse 62% 70% at 50% 50%,
         black 0%,
-        black 36%,
-        rgba(0, 0, 0, 0.6) 65%,
-        rgba(0, 0, 0, 0.18) 88%,
+        black 58%,
+        rgba(0, 0, 0, 0.7) 78%,
+        rgba(0, 0, 0, 0.2) 92%,
         transparent 100%
     );
     opacity: 1;
