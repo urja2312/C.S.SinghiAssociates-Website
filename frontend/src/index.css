@@ -2450,7 +2450,7 @@ button {
 .about__inner {
     position: relative;
     z-index: 2;
-    max-width: 1100px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -2705,6 +2705,7 @@ button {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: clamp(2.5rem, 7vw, 7rem);
     align-items: stretch;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 .about__left {
@@ -2755,7 +2756,31 @@ button {
     flex-direction: column;
     gap: 0.9rem;
     height: 100%;
-    justify-content: space-between;
+}
+
+/* Make purpose card stretch to align with paragraph end */
+.about__right .card.purpose {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 2.5rem;
+}
+
+.about__right .card.purpose .purpose__mark {
+    font-size: 4rem;
+    margin: 0 0 0.5rem;
+}
+
+.about__right .card.purpose .purpose__quote {
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+    line-height: 1.55;
+    padding-left: 1.4rem;
+    margin: 0.25rem 0 1.5rem;
+}
+
+.about__right .card.purpose .card__title {
+    margin-bottom: 0.5rem;
 }
 
 /* Reusable bordered architectural card */
@@ -2782,6 +2807,105 @@ button {
     position: relative;
     height: 10px;
     margin: 0.25rem 0 0.75rem;
+}
+
+/* ---- Featured Timeline (full-width exhibit) ---- */
+.tl--featured {
+    padding: clamp(2.25rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem) clamp(2rem, 3.5vw, 3rem);
+    margin-bottom: 2.5rem;
+    background: linear-gradient(180deg, rgba(11, 19, 32, 0.55) 0%, rgba(14, 23, 40, 0.35) 100%);
+    border: 1px solid rgba(216, 178, 122, 0.42);
+}
+
+.tl--featured .tl__header {
+    margin-bottom: clamp(2rem, 3.5vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.tl--featured .tl__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(216, 178, 122, 0.85);
+}
+
+.tl--featured .tl__title-main {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.25rem, 3.6vw, 3.4rem);
+    color: #f3eede;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+
+.tl--featured .tl__track {
+    height: 22px;
+    margin: 1rem 0 2.25rem;
+}
+
+.tl--featured .tl__track-line {
+    background: rgba(216, 178, 122, 0.28);
+    height: 2px;
+}
+
+.tl--featured .tl__track-fill {
+    background: linear-gradient(90deg, var(--wood) 0%, rgba(216, 178, 122, 0.85) 100%);
+    height: 2px;
+    box-shadow: 0 0 18px rgba(216, 178, 122, 0.35);
+}
+
+.tl--featured .tl__node {
+    width: 18px;
+    height: 18px;
+    background: #0e1728;
+    border: 1.5px solid var(--wood);
+    box-shadow: 0 0 0 4px rgba(11, 19, 32, 0.9), 0 0 20px rgba(216, 178, 122, 0.35);
+}
+
+.tl--featured .tl__items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.tl--featured .tl__item {
+    text-align: left;
+    padding-right: 0;
+    border-left: 1px solid rgba(216, 178, 122, 0.18);
+    padding-left: clamp(0.85rem, 1.2vw, 1.25rem);
+}
+
+.tl--featured .tl__year {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2vw, 1.95rem);
+    color: var(--wood);
+    margin-bottom: 0.85rem;
+    line-height: 1;
+}
+
+.tl--featured .tl__title {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    color: #f3eede;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.tl--featured .tl__desc {
+    font-family: var(--font-sans);
+    font-size: clamp(0.78rem, 0.85vw, 0.85rem);
+    color: rgba(243, 238, 222, 0.65);
+    line-height: 1.55;
+    font-weight: 300;
 }
 
 .tl__track-line,
@@ -2931,6 +3055,7 @@ button {
 @media (max-width: 1100px) {
     .about__layout { grid-template-columns: 1fr; }
     .tl__items { grid-template-columns: repeat(5, 1fr); font-size: 0.85em; }
+    .tl--featured .tl__items { grid-template-columns: repeat(5, 1fr); gap: 1.25rem; }
     .metrics { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .metric:nth-child(2) { border-right: none; }
     .metric:nth-child(3),
@@ -2941,4 +3066,118 @@ button {
 @media (max-width: 768px) {
     .tl__items { grid-template-columns: repeat(2, 1fr); gap: 1rem 0.75rem; }
     .tl__track { display: none; }
+    .tl--featured .tl__items { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+    .tl--featured .tl__track { display: none; }
+}
+
+/* ============================================================
+   ABOUT — Atmospheric transition into the next chapter
+   ============================================================ */
+
+/* Override the about section bg to start dark and gently warm
+   toward the bottom, so the eye is primed for the off-white
+   architectural canvas of the next section.                 */
+.about {
+    background:
+        radial-gradient(
+            ellipse 70% 45% at 65% 28%,
+            rgba(193, 147, 90, 0.07) 0%,
+            transparent 65%
+        ),
+        linear-gradient(
+            180deg,
+            #0b1320 0%,
+            #0e1728 35%,
+            #11192a 70%,
+            #1a2233 92%,
+            #2a2f3a 100%
+        );
+    padding-bottom: 0;
+}
+
+/* Fade the drafting grid out as we descend toward the next chapter */
+.about__grid-bg {
+    mask-image: radial-gradient(
+            ellipse 90% 70% at 50% 35%,
+            black 22%,
+            transparent 88%
+        ),
+        linear-gradient(180deg, black 0%, black 55%, transparent 92%);
+    -webkit-mask-image: radial-gradient(
+            ellipse 90% 70% at 50% 35%,
+            black 22%,
+            transparent 88%
+        ),
+        linear-gradient(180deg, black 0%, black 55%, transparent 92%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+}
+
+/* Architectural drawing dissolves into the warming canvas */
+.about__wire {
+    -webkit-mask-image:
+        linear-gradient(90deg, transparent 0%, black 35%, black 100%),
+        linear-gradient(180deg, black 0%, black 55%, transparent 88%);
+    mask-image:
+        linear-gradient(90deg, transparent 0%, black 35%, black 100%),
+        linear-gradient(180deg, black 0%, black 55%, transparent 88%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+}
+
+/* The cinematic fade zone — navy → ivory architectural canvas */
+.about__fade {
+    position: relative;
+    width: 100%;
+    height: clamp(22vh, 28vh, 36vh);
+    background:
+        linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(244, 241, 234, 0.08) 18%,
+            rgba(244, 241, 234, 0.28) 42%,
+            rgba(244, 241, 234, 0.6) 68%,
+            rgba(244, 241, 234, 0.92) 88%,
+            #f4f1ea 100%
+        );
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Faint blueprint trace bleeds into the fade — keeps the gold thread */
+.about__fade::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(193, 147, 90, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 147, 90, 0.05) 1px, transparent 1px);
+    background-size: 96px 96px;
+    -webkit-mask-image: linear-gradient(180deg, black 0%, transparent 65%);
+    mask-image: linear-gradient(180deg, black 0%, transparent 65%);
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+/* Single golden ruled line — a quiet handover between chapters */
+.about__fade::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 1px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(193, 147, 90, 0.35) 25%,
+        rgba(193, 147, 90, 0.55) 50%,
+        rgba(193, 147, 90, 0.35) 75%,
+        transparent 100%
+    );
+}
+
+/* Next chapter — Services receives the warm canvas */
+.services {
+    background: var(--canvas-warm);
 }

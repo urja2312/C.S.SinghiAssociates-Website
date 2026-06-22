@@ -24,18 +24,30 @@ export default function About() {
         scrollTrigger: { trigger: ".about__body", start: "top 85%", once: true },
       });
 
-      // Timeline draw
+      // Timeline — featured exhibit with sequential reveal
+      gsap.from(".tl__header", {
+        opacity: 0, y: 30, duration: 0.9, ease: "expo.out",
+        scrollTrigger: { trigger: ".tl--featured", start: "top 80%", once: true },
+      });
       gsap.from(".tl__track-fill", {
-        scaleX: 0, transformOrigin: "left center", duration: 1.6, ease: "expo.out",
-        scrollTrigger: { trigger: ".tl", start: "top 80%", once: true },
+        scaleX: 0, transformOrigin: "left center", duration: 2.0, ease: "expo.out",
+        scrollTrigger: { trigger: ".tl--featured", start: "top 75%", once: true },
+        delay: 0.25,
       });
       gsap.from(".tl__node", {
-        opacity: 0, scale: 0.4, stagger: 0.15, duration: 0.6, ease: "back.out(2)",
-        scrollTrigger: { trigger: ".tl", start: "top 80%", once: true },
+        opacity: 0, scale: 0.2, stagger: 0.22, duration: 0.55, ease: "back.out(2.4)",
+        scrollTrigger: { trigger: ".tl--featured", start: "top 75%", once: true },
+        delay: 0.35,
       });
-      gsap.from(".tl__year, .tl__title, .tl__desc", {
-        opacity: 0, y: 12, stagger: 0.04, duration: 0.6, ease: "expo.out",
-        scrollTrigger: { trigger: ".tl", start: "top 78%", once: true },
+      gsap.from(".tl__year", {
+        opacity: 0, y: 14, stagger: 0.22, duration: 0.55, ease: "expo.out",
+        scrollTrigger: { trigger: ".tl--featured", start: "top 75%", once: true },
+        delay: 0.45,
+      });
+      gsap.from(".tl__title, .tl__desc", {
+        opacity: 0, y: 10, stagger: 0.06, duration: 0.5, ease: "expo.out",
+        scrollTrigger: { trigger: ".tl--featured", start: "top 72%", once: true },
+        delay: 0.6,
       });
 
       gsap.from(".purpose", {
@@ -74,8 +86,8 @@ export default function About() {
       <div className="about__wire" aria-hidden="true" />
 
       <div className="section__inner about__inner">
+        {/* TOP — story + purpose */}
         <div className="about__layout">
-          {/* LEFT — story */}
           <div className="about__left">
             <div className="kicker">— OUR STORY · 2001 → 2026</div>
             <h2 className="about__heading">
@@ -85,34 +97,7 @@ export default function About() {
             <p className="about__body" data-testid="about-body">{ABOUT_BODY}</p>
           </div>
 
-          {/* RIGHT — timeline + purpose */}
           <div className="about__right">
-            <article className="card tl" aria-label="Our journey timeline">
-              <header className="card__title">
-                Our Journey : Twenty-five Years, Five Defining Chapters
-              </header>
-              <div className="tl__track" aria-hidden="true">
-                <span className="tl__track-line" />
-                <span className="tl__track-fill" />
-                {TIMELINE.map((_, i) => (
-                  <span
-                    key={i}
-                    className="tl__node"
-                    style={{ left: `${(i / (TIMELINE.length - 1)) * 100}%` }}
-                  />
-                ))}
-              </div>
-              <div className="tl__items">
-                {TIMELINE.map((m) => (
-                  <div className="tl__item" key={m.year}>
-                    <div className="tl__year">{m.year}</div>
-                    <div className="tl__title">{m.title}</div>
-                    <div className="tl__desc">{m.desc}</div>
-                  </div>
-                ))}
-              </div>
-            </article>
-
             <article className="card purpose">
               <header className="card__title">Our Purpose</header>
               <span className="purpose__mark" aria-hidden="true">&ldquo;</span>
@@ -127,6 +112,34 @@ export default function About() {
             </article>
           </div>
         </div>
+
+        {/* FEATURED — timeline exhibit */}
+        <article className="card tl tl--featured" aria-label="Our journey timeline" data-testid="about-timeline">
+          <header className="tl__header">
+            <div className="tl__eyebrow">— Twenty-Five Years · Five Defining Chapters</div>
+            <h3 className="tl__title-main">Our Journey</h3>
+          </header>
+          <div className="tl__track" aria-hidden="true">
+            <span className="tl__track-line" />
+            <span className="tl__track-fill" />
+            {TIMELINE.map((_, i) => (
+              <span
+                key={i}
+                className="tl__node"
+                style={{ left: `${(i / (TIMELINE.length - 1)) * 100}%` }}
+              />
+            ))}
+          </div>
+          <div className="tl__items">
+            {TIMELINE.map((m) => (
+              <div className="tl__item" key={m.year}>
+                <div className="tl__year">{m.year}</div>
+                <div className="tl__title">{m.title}</div>
+                <div className="tl__desc">{m.desc}</div>
+              </div>
+            ))}
+          </div>
+        </article>
 
         {/* BOTTOM — metrics */}
         <article className="card metrics" aria-label="Company metrics">
@@ -162,6 +175,9 @@ export default function About() {
           </p>
         </div>
       </div>
+
+      {/* Atmospheric transition into the next chapter */}
+      <div className="about__fade" aria-hidden="true" data-testid="about-fade-out" />
     </section>
   );
 }

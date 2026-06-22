@@ -16,17 +16,12 @@ Build a $10,000-grade single-page architectural portfolio site for C.S. Singhi &
 - FastAPI backend with MongoDB persistence
 - Space Grotesk + Space Mono + EB Garamond (italic accent) via Google Fonts
 
-## What's built (Dec 2025)
+## What's built (Dec 2025 → Feb 2026)
 - 7-section single-page site fully wired (Hero, About, Services, Projects, Team, Careers, Contact)
 - Sticky nav with transparent → frosted state swap, mobile hamburger, ⌘K / Ctrl+K search overlay
-- Hero: provided axonometric render + blueprint grid + radial structural glow + panel with title, eyebrow, subhead, in-page nav
-- About: photo collage, narrative + founding quote, animated 25/12+/3/100% counters (IntersectionObserver fail-safe), 4 values, dark Pro-Bono strip
-- Services: 6 cards with hover arrow
-- Projects: horizontal scrub track with 3 project cards, click-to-open drawer with full specs + amenities + enquire CTA
-- Team: principal feature + Sakshi feature + 6-card grid + support row (initials placeholders, swappable for photos)
-- Careers: 3 job cards with mailto Apply
-- Contact: form persists to MongoDB (POST /api/contact), graceful error states; phone/email/whatsapp deep-links
-- Footer with credits to Arushi & Urja Singhi
+- Hero: Dark Navy Drafting Table aesthetic — axonometric render + blueprint grid + radial structural glow + panel with title, eyebrow, subhead
+- About: Dark navy editorial chapter — story column + Our Purpose quote card (aligned), full-width **featured Timeline exhibit** ("Our Journey") with sequential GSAP reveal, metrics, Pro Bono strip, **atmospheric navy→ivory transition zone**
+- Services, Projects, Team, Careers, Contact — still in legacy light styling, queued for dark-theme migration starting with Practice
 
 ## Backend endpoints
 - GET  /api/                — health
