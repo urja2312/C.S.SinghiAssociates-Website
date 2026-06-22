@@ -1443,66 +1443,134 @@ button {
 }
 
 /* ============================================================
-   PROJECTS — Horizontal scroll
+   PROJECTS — Manual horizontal gallery with arrow controls
    ============================================================ */
 .projects {
-    background: var(--canvas);
+    background: var(--canvas-warm);
     overflow: hidden;
 }
 
 .projects__intro {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: var(--space-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: clamp(2.25rem, 4vw, 3.5rem);
+    max-width: 760px;
+}
+
+.projects__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--wood);
 }
 
 .projects__title {
-    font-size: var(--text-xl);
-    font-family: var(--font-sans);
-    font-weight: 700;
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5.5vw, 4.75rem);
+    font-weight: 500;
     color: var(--ink);
-    line-height: 0.95;
+    line-height: 1;
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
 
-.projects__hint {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
+.projects__lede {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 1.1vw, 1.1rem);
     color: var(--concrete);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
+    line-height: 1.7;
+    margin: 0.5rem 0 0;
+    max-width: 56ch;
+    font-weight: 300;
+}
+
+/* Gallery shell — arrows flank the scrollable viewport */
+.projects__gallery {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
 }
 
 .projects__viewport {
     position: relative;
-    height: 90vh;
-    min-height: 620px;
-    overflow: hidden;
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0.5rem 0 2rem;
+}
+
+.projects__viewport::-webkit-scrollbar {
+    display: none;
 }
 
 .projects__track {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 2rem;
-    padding: 0 var(--gutter);
-    will-change: transform;
+    padding: 0 clamp(1.25rem, 4vw, 4rem);
+    width: max-content;
+}
+
+/* Arrow controls — paper-stock circular buttons */
+.projects__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: clamp(48px, 4vw, 60px);
+    height: clamp(48px, 4vw, 60px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(193, 147, 90, 0.45);
+    border-radius: 999px;
+    color: var(--ink);
+    cursor: pointer;
+    transition:
+        background 250ms var(--ease-out),
+        color 250ms var(--ease-out),
+        border-color 250ms var(--ease-out),
+        opacity 250ms var(--ease-out),
+        transform 250ms var(--ease-out);
+}
+
+.projects__arrow:hover:not(:disabled) {
+    background: var(--wood);
+    color: #fff;
+    border-color: var(--wood);
+}
+
+.projects__arrow:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.94);
+}
+
+.projects__arrow:disabled {
+    opacity: 0.28;
+    cursor: not-allowed;
+}
+
+.projects__arrow--left {
+    left: clamp(0.5rem, 2vw, 1.75rem);
+}
+
+.projects__arrow--right {
+    right: clamp(0.5rem, 2vw, 1.75rem);
 }
 
 .project-card {
     position: relative;
     flex-shrink: 0;
-    width: clamp(320px, 38vw, 480px);
+    width: clamp(320px, 42vw, 600px);
     aspect-ratio: 3 / 4;
     background-size: cover;
     background-position: center;
@@ -1510,6 +1578,7 @@ button {
     cursor: pointer;
     overflow: hidden;
     border: 1px solid rgba(58, 54, 50, 0.1);
+    scroll-snap-align: start;
     transition:
         transform 500ms var(--ease-out),
         box-shadow 500ms var(--ease-out);
@@ -3180,4 +3249,28 @@ button {
 /* Next chapter — Services receives the warm canvas */
 .services {
     background: var(--canvas-warm);
+}
+
+/* PRACTICE label — promoted from a small kicker to a section eyebrow */
+.services .kicker {
+    font-family: var(--font-mono);
+    font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+    letter-spacing: 0.32em;
+    color: var(--wood);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.services .kicker::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1.75rem;
+    height: 1px;
+    background: var(--wood);
+    transform: translateY(-50%);
 }
