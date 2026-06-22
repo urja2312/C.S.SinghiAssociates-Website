@@ -1570,8 +1570,8 @@ button {
 .project-card {
     position: relative;
     flex-shrink: 0;
-    width: clamp(320px, 42vw, 600px);
-    aspect-ratio: 3 / 4;
+    width: clamp(300px, 30vw, 460px);
+    aspect-ratio: 4 / 5;
     background-size: cover;
     background-position: center;
     background-color: var(--ink);
