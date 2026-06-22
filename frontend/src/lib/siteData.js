@@ -29,10 +29,11 @@ export const STOCK_PHOTOS = {
 
 export const NAV_LINKS = [
   { id: "about", label: "About" },
-  { id: "services", label: "Services" },
+  { id: "services", label: "Practice" },
   { id: "projects", label: "Projects" },
   { id: "team", label: "Team" },
   { id: "careers", label: "Careers" },
+  { id: "contact", label: "Contact" },
 ];
 
 export const VALUES = [

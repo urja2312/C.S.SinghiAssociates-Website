@@ -2374,3 +2374,306 @@ button {
         animation: none !important;
     }
 }
+
+/* ============================================================
+   ABOUT — Dark editorial monograph spread
+   Inherits the hero's drafting-table palette so the page reads
+   as one continuous architectural story.
+   ============================================================ */
+.about {
+    position: relative;
+    background:
+        radial-gradient(
+            ellipse 80% 55% at 70% 35%,
+            rgba(193, 147, 90, 0.06) 0%,
+            transparent 65%
+        ),
+        linear-gradient(180deg, #0b1320 0%, #0e1728 50%, #0b1320 100%);
+    color: #f3eede;
+    isolation: isolate;
+    padding: clamp(6rem, 12vh, 10rem) 0 0;
+    overflow: hidden;
+}
+
+.about__grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(193, 147, 90, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 147, 90, 0.05) 1px, transparent 1px);
+    background-size: 96px 96px;
+    z-index: 0;
+    pointer-events: none;
+    mask-image: radial-gradient(
+        ellipse 90% 80% at 50% 45%,
+        black 25%,
+        transparent 90%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse 90% 80% at 50% 45%,
+        black 25%,
+        transparent 90%
+    );
+}
+
+.about__halo {
+    position: absolute;
+    top: 12%;
+    right: -15%;
+    width: 60vw;
+    height: 60vw;
+    max-width: 1000px;
+    max-height: 1000px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(193, 147, 90, 0.12) 0%, transparent 65%);
+    filter: blur(50px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about__cross {
+    position: absolute;
+    z-index: 2;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    color: var(--wood);
+    font-size: 22px;
+    line-height: 1;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.about__cross--tl { top: 2rem; left: 1.5rem; }
+.about__cross--tr { top: 2rem; right: 1.5rem; }
+.about__cross--mr { top: 48%; right: 4vw; font-size: 16px; opacity: 0.45; }
+
+.about__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about__head {
+    max-width: 760px;
+    margin-bottom: 2.5rem;
+}
+
+.about .kicker {
+    color: rgba(216, 178, 122, 0.85);
+}
+
+.about__heading {
+    font-family: var(--font-sans);
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: #f3eede;
+    margin: 1rem 0 0;
+    text-transform: uppercase;
+}
+
+.about__heading em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: #d8b27a;
+    text-transform: lowercase;
+    letter-spacing: -0.01em;
+}
+
+.about__body {
+    font-family: var(--font-sans);
+    font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+    line-height: 1.7;
+    color: rgba(243, 238, 222, 0.78);
+    max-width: 60ch;
+    margin: 0 0 5rem;
+    font-weight: 300;
+}
+
+/* === Hero quote — the visual anchor === */
+.about__quote-block {
+    position: relative;
+    margin: 0 0 6rem;
+    padding: 2.5rem 0 2.5rem 4rem;
+    max-width: 920px;
+    border-left: 1px solid rgba(216, 178, 122, 0.5);
+}
+
+.about__quote-mark {
+    position: absolute;
+    top: -1.2rem;
+    left: 2rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(5rem, 9vw, 8rem);
+    line-height: 1;
+    color: var(--wood);
+    opacity: 0.7;
+    pointer-events: none;
+    user-select: none;
+}
+
+.about__quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+    line-height: 1.32;
+    letter-spacing: -0.005em;
+    color: #f7f1de;
+    margin: 0;
+    max-width: 28ch;
+}
+
+.about__quote-attr {
+    margin-top: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(216, 178, 122, 0.85);
+}
+
+.about__quote-rule {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--wood);
+}
+
+/* === Stats === */
+.about .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(216, 178, 122, 0.25);
+    border-bottom: 1px solid rgba(216, 178, 122, 0.25);
+    margin: 0 0 5rem;
+}
+
+.about .stat {
+    padding: 2.25rem 1.5rem;
+    border-right: 1px solid rgba(216, 178, 122, 0.18);
+    background: transparent;
+}
+
+.about .stat:last-child { border-right: none; }
+
+.about .stat__value {
+    font-family: var(--font-sans);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    color: #d8b27a;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.about .stat__label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(243, 238, 222, 0.6);
+    margin-top: 0.85rem;
+}
+
+.about__pillars-kicker {
+    margin-bottom: 1.25rem;
+}
+
+/* === Values === */
+.about .values {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 0 0 6rem;
+}
+
+.about .value {
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(216, 178, 122, 0.22);
+    background: rgba(216, 178, 122, 0.02);
+    transition:
+        transform 350ms var(--ease-out),
+        border-color 350ms var(--ease-out),
+        background 350ms var(--ease-out);
+}
+
+.about .value:hover {
+    transform: translateY(-4px);
+    border-color: rgba(216, 178, 122, 0.55);
+    background: rgba(216, 178, 122, 0.05);
+}
+
+.about .value__name {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #d8b27a;
+    margin-bottom: 0.85rem;
+}
+
+.about .value__desc {
+    font-family: var(--font-sans);
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: rgba(243, 238, 222, 0.78);
+    font-weight: 300;
+}
+
+/* === Pro Bono strip (still dark) === */
+.about .probono {
+    background: rgba(11, 19, 32, 0.6);
+    border-top: 1px solid rgba(216, 178, 122, 0.18);
+    border-bottom: 1px solid rgba(216, 178, 122, 0.18);
+    padding: clamp(4rem, 8vh, 6rem) 0;
+    margin-top: 4rem;
+}
+
+.about .probono__heading {
+    color: #d8b27a;
+}
+
+.about .probono__card {
+    background: transparent;
+    border-left: 1px solid rgba(216, 178, 122, 0.25);
+}
+
+.about .probono__card:hover {
+    border-left: 3px solid var(--wood);
+    background: rgba(216, 178, 122, 0.04);
+}
+
+.about .probono__card-name { color: #f3eede; }
+.about .probono__card-loc  { color: #d8b27a; }
+.about .probono__card-desc { color: rgba(243, 238, 222, 0.65); }
+
+.about .probono__quote {
+    color: rgba(243, 238, 222, 0.85);
+    border-top-color: rgba(216, 178, 122, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .about .stats { grid-template-columns: repeat(2, 1fr); }
+    .about .stat:nth-child(2) { border-right: none; }
+    .about .stat:nth-child(3),
+    .about .stat:nth-child(4) {
+        border-top: 1px solid rgba(216, 178, 122, 0.18);
+    }
+    .about .values { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .about__quote-block {
+        padding-left: 2rem;
+    }
+    .about__quote-mark {
+        left: 1rem;
+    }
+    .about .stats { grid-template-columns: 1fr 1fr; }
+}
