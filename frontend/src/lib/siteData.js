@@ -4,9 +4,9 @@
    ============================================================ */
 
 export const ASSETS = {
-  hero: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/09vnbnxh_hero%20element.png",
+  hero: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/cn7hvb4h_golden_hero_element.png",
   logo: "https://customer-assets.emergentagent.com/job_6eb074fe-1740-4003-b10a-e49bd9643602/artifacts/17tvwskj_logo.png",
-  logoIcon: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/vc3ooygl_image.png",
+  logoIcon: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/ndakjvqy_image.png",
   logoFull: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/jl0u46ay_image.png",
 };
 
