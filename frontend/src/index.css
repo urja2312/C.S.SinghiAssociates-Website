@@ -175,23 +175,82 @@ button {
     display: flex;
     align-items: center;
     padding: 0 var(--gutter);
-    color: var(--ink);
-    background: rgba(249, 246, 240, 0.55);
-    backdrop-filter: blur(14px) saturate(1.05);
-    -webkit-backdrop-filter: blur(14px) saturate(1.05);
+    color: #f3eede;
+    background: transparent;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
     transition:
         background 400ms var(--ease-out),
         backdrop-filter 400ms var(--ease-out),
+        color 400ms var(--ease-out),
         height 400ms var(--ease-out);
     border-bottom: none;
+    box-shadow: none;
 }
 
 .nav--solid {
     background: rgba(249, 246, 240, 0.86);
     backdrop-filter: blur(22px) saturate(1.1);
     -webkit-backdrop-filter: blur(22px) saturate(1.1);
-    height: calc(var(--nav-height) - 8px);
-    box-shadow: 0 8px 30px -20px rgba(58, 54, 50, 0.18);
+    color: var(--ink);
+    height: calc(var(--nav-height) - 12px);
+    box-shadow: 0 8px 30px -20px rgba(26, 35, 50, 0.18);
+}
+
+.nav__menu a {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: inherit;
+    padding: 0.4em 0;
+    transition: color 250ms var(--ease-out);
+}
+
+.nav__menu a:hover {
+    color: var(--wood);
+}
+
+.nav--solid .nav__menu a:hover {
+    color: var(--blueprint);
+}
+
+.nav__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.6em 1.4em;
+    border: 1px solid rgba(216, 178, 122, 0.7);
+    border-radius: 999px;
+    color: rgba(216, 178, 122, 0.95);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: transparent;
+    transition:
+        background 280ms var(--ease-out),
+        color 280ms var(--ease-out),
+        border-color 280ms var(--ease-out),
+        transform 280ms var(--ease-out);
+}
+
+.nav__cta:hover {
+    background: var(--wood);
+    color: #0e1728;
+    border-color: var(--wood);
+    transform: translateY(-1px);
+}
+
+.nav--solid .nav__cta {
+    border-color: var(--wood);
+    color: var(--wood-dark);
+}
+
+.nav--solid .nav__cta:hover {
+    background: var(--wood);
+    color: #fff;
 }
 
 .nav__inner {
@@ -215,12 +274,14 @@ button {
     transform: scale(1.03);
 }
 
-/* Transparent gold icon — used as-is, no filter, no container */
+/* Transparent gold icon — luminance-to-alpha filter drops any backplate
+   (whether dark or light) so only the gold mark remains. */
 .nav__logo {
     height: 56px;
     width: auto;
     max-width: 80px;
     object-fit: contain;
+    filter: url(#lum-alpha) brightness(1.08) saturate(1.05);
     transition: height 350ms var(--ease-out), opacity 250ms var(--ease-out);
 }
 
@@ -600,20 +661,31 @@ button {
     width: 100%;
     min-height: 100svh;
     overflow: hidden;
-    color: var(--ink);
+    color: #f3eede;
     isolation: isolate;
     padding: var(--nav-height) 0 0;
-    background: linear-gradient(180deg, #fafbfc 0%, #f2f5f9 60%, #eaf0f7 100%);
+    background:
+        radial-gradient(
+            ellipse 85% 60% at 70% 50%,
+            rgba(193, 147, 90, 0.08) 0%,
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse 60% 50% at 15% 30%,
+            rgba(107, 138, 174, 0.05) 0%,
+            transparent 70%
+        ),
+        linear-gradient(180deg, #0c1422 0%, #0e1728 60%, #0b1320 100%);
 }
 
-/* Full-bleed blueprint grid — whisper-quiet */
+/* Subtle drafting-board grid — gold on navy, whisper-quiet */
 .hero__grid {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(61, 90, 128, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(61, 90, 128, 0.06) 1px, transparent 1px);
-    background-size: 92px 92px;
+        linear-gradient(rgba(193, 147, 90, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(193, 147, 90, 0.05) 1px, transparent 1px);
+    background-size: 96px 96px;
     background-position: -1px -1px;
     z-index: 1;
     pointer-events: none;
@@ -629,79 +701,77 @@ button {
     );
 }
 
-/* Soft architectural wash to fade out grid darker in centre */
+/* Faint vignette/wash for the dark drafting board */
 .hero__wash {
     position: absolute;
     inset: 0;
     background:
         radial-gradient(
-            ellipse 90% 65% at 60% 55%,
-            rgba(217, 226, 238, 0.55) 0%,
-            rgba(217, 226, 238, 0) 70%
-        ),
-        radial-gradient(
-            ellipse 70% 50% at 15% 80%,
+            ellipse 90% 60% at 60% 55%,
             rgba(193, 147, 90, 0.05) 0%,
-            transparent 60%
+            transparent 70%
         );
     z-index: 1;
     pointer-events: none;
 }
 
-/* Halo behind the building — breathes with scroll */
+/* Warm halo lighting the gold drafting paper */
 .hero__halo {
     position: absolute;
     top: 48%;
-    left: 60%;
+    left: 62%;
     transform: translate(-50%, -50%);
-    width: 60vw;
-    height: 60vw;
-    max-width: 920px;
-    max-height: 920px;
+    width: 70vw;
+    height: 70vw;
+    max-width: 1100px;
+    max-height: 1100px;
     border-radius: 50%;
     background: radial-gradient(
         circle,
-        rgba(107, 138, 174, 0.22) 0%,
-        rgba(107, 138, 174, 0.08) 35%,
+        rgba(193, 147, 90, 0.22) 0%,
+        rgba(193, 147, 90, 0.08) 35%,
         transparent 70%
     );
-    filter: blur(20px);
+    filter: blur(40px);
     z-index: 1;
     pointer-events: none;
     will-change: transform;
 }
 
-/* The building — monumental, dominant, mostly off-canvas */
+/* The building — monumental, recoloured to brass on navy */
 .hero__building {
     position: absolute;
     top: 50%;
-    left: 88%;
+    left: 92%;
     transform: translate(-50%, -50%);
-    width: clamp(1200px, 130vw, 1900px);
+    width: clamp(1500px, 150vw, 2200px);
     height: auto;
-    max-height: 160vh;
+    max-height: 180vh;
     object-fit: contain;
     z-index: 2;
-    mix-blend-mode: multiply;
-    filter: saturate(0.7) contrast(1.05)
-        drop-shadow(0 50px 100px rgba(26, 35, 50, 0.18));
+    /* Invert pulls the dark blue ink to light cream; sepia + hue + saturation
+       retints it to a brass / antique-gold register. Screen blends it onto
+       the navy canvas so the white paper background drops out. */
+    filter: invert(1) sepia(1) saturate(2.4) hue-rotate(-12deg) brightness(0.95)
+        contrast(1.05) drop-shadow(0 30px 80px rgba(0, 0, 0, 0.45));
+    mix-blend-mode: screen;
     -webkit-mask-image: radial-gradient(
-        ellipse 48% 60% at 50% 50%,
+        ellipse 50% 60% at 50% 50%,
         black 0%,
         black 32%,
-        rgba(0, 0, 0, 0.5) 60%,
-        rgba(0, 0, 0, 0.15) 85%,
+        rgba(0, 0, 0, 0.6) 62%,
+        rgba(0, 0, 0, 0.2) 88%,
         transparent 100%
     );
     mask-image: radial-gradient(
-        ellipse 48% 60% at 50% 50%,
+        ellipse 50% 60% at 50% 50%,
         black 0%,
         black 32%,
-        rgba(0, 0, 0, 0.5) 60%,
-        rgba(0, 0, 0, 0.15) 85%,
+        rgba(0, 0, 0, 0.6) 62%,
+        rgba(0, 0, 0, 0.2) 88%,
         transparent 100%
     );
-    opacity: 0.92;
+    opacity: 0.95;
     animation:
         hero-building-in 1.6s var(--ease-out) 0.3s both,
         hero-building-float 12s ease-in-out 2s infinite;
@@ -783,7 +853,7 @@ button {
     font-size: 0.7rem;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--slate);
+    color: rgba(216, 178, 122, 0.85);
     margin: 0 0 1.75rem;
     display: inline-flex;
     align-items: center;
@@ -804,7 +874,7 @@ button {
     line-height: 0.94;
     letter-spacing: -0.03em;
     margin: 0;
-    color: var(--ink);
+    color: #f3eede;
 }
 
 .hero__title-line {
@@ -819,7 +889,7 @@ button {
     font-style: italic;
     font-weight: 400;
     font-family: var(--font-serif);
-    color: var(--blueprint);
+    color: #d8b27a;
     margin-left: 0.05em;
     letter-spacing: -0.01em;
 }
@@ -829,14 +899,13 @@ button {
     font-family: var(--font-serif);
     font-size: clamp(0.95rem, 1.2vw, 1.1rem);
     line-height: 1.65;
-    color: var(--slate);
+    color: rgba(243, 238, 222, 0.78);
     max-width: 42ch;
     font-style: italic;
     padding-left: 0.85rem;
-    border-left: 1px solid rgba(193, 147, 90, 0.45);
+    border-left: 1px solid rgba(216, 178, 122, 0.45);
 }
 
-/* Minimal scroll indicator — bottom-left, gold, editorial */
 .hero__scroll {
     position: absolute;
     bottom: 2.25rem;
@@ -849,7 +918,7 @@ button {
     font-size: 0.7rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--wood-dark);
+    color: rgba(216, 178, 122, 0.85);
     opacity: 0.85;
     transition: gap 280ms var(--ease-out), opacity 250ms var(--ease-out);
 }
@@ -914,7 +983,6 @@ button {
     opacity: 0.45;
 }
 
-/* Vertical edge labels — rotated gold mono */
 .hero__edge {
     position: absolute;
     z-index: 3;
@@ -922,8 +990,8 @@ button {
     font-size: 0.66rem;
     letter-spacing: 0.45em;
     text-transform: uppercase;
-    color: var(--wood-dark);
-    opacity: 0.75;
+    color: rgba(216, 178, 122, 0.7);
+    opacity: 0.8;
     pointer-events: none;
     white-space: nowrap;
 }
