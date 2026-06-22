@@ -57,9 +57,17 @@ export const VALUES = [
 
 export const STATS = [
   { value: 25, suffix: "", label: "Years of Practice" },
-  { value: 12, suffix: "+", label: "Projects Developed" },
-  { value: 3, suffix: "", label: "Offices Across India" },
+  { value: 100, suffix: "+", label: "Flagship Developments" },
+  { value: 3, suffix: "", label: "Company Landmarks" },
   { value: 100, suffix: "%", label: "Turnkey Delivery" },
+];
+
+export const TIMELINE = [
+  { year: "2001", title: "The Beginning",       desc: "Founded in Gangtok" },
+  { year: "2006", title: "Building Foundations", desc: "Expansion of early projects" },
+  { year: "2012", title: "Expanding Horizons",  desc: "Growth across sectors" },
+  { year: "2018", title: "Designing Landmarks", desc: "Major regional developments" },
+  { year: "2026", title: "Shaping Tomorrow",    desc: "Silver Jubilee milestone" },
 ];
 
 export const PROBONO = [
