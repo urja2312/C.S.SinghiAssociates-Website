@@ -1846,6 +1846,61 @@ button {
     padding: clamp(1.25rem, 2.25vw, 1.75rem);
     margin-bottom: 1rem;
     max-width: 880px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Wrapper holds the two featured cards + the decorative line drawing */
+.team__features-row {
+    position: relative;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Architectural line drawing — sits to the right of the two featured cards.
+   The PNG is black with golden line work; mask-mode: luminance discards the
+   black background and uses the bright gold lines as the alpha source, then
+   the element is filled with a richer gold gradient to "make it more golden". */
+.team__deco {
+    position: absolute;
+    top: 50%;
+    right: clamp(-4rem, -2vw, -1rem);
+    transform: translate(8%, -50%);
+    width: clamp(480px, 52vw, 820px);
+    height: clamp(480px, 52vw, 820px);
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(
+            ellipse 60% 55% at 50% 50%,
+            #f0c970 0%,
+            #d8a648 30%,
+            #b68235 60%,
+            #7a5520 92%
+        );
+    -webkit-mask-image: url("https://customer-assets.emergentagent.com/job_himalayan/artifacts/xyh84fdz_image.png");
+    mask-image: url("https://customer-assets.emergentagent.com/job_himalayan/artifacts/xyh84fdz_image.png");
+    -webkit-mask-mode: luminance;
+    mask-mode: luminance;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center right;
+    mask-position: center right;
+    opacity: 0.95;
+    filter:
+        contrast(1.45)
+        saturate(1.6)
+        drop-shadow(0 0 25px rgba(216, 178, 122, 0.32));
+    transition: opacity 600ms var(--ease-out);
+}
+
+@media (max-width: 1180px) {
+    .team__deco { opacity: 0.6; }
+}
+
+@media (max-width: 900px) {
+    .team__deco { display: none; }
 }
 
 .team__feature--alt {
