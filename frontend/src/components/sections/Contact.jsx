@@ -51,20 +51,19 @@ export default function Contact() {
       data-testid="section-contact"
     >
       <div className="section__inner">
-        <div className="contact__grid contact__grid--single">
+        <div className="contact__grid contact__grid--single contact__grid--centered">
           <div>
             <div className="kicker" style={{ marginBottom: "1rem" }}>
               Let&rsquo;s begin a conversation
             </div>
             <h2 className="contact__headline">
-              Let&rsquo;s build <br />
-              something <br />
+              Let&rsquo;s build something <br />
               <em>that lasts.</em>
             </h2>
             <p className="contact__lede">
               Whether you have a plot, a sketch, or simply a vision — reach out
-              directly via phone, email or WhatsApp. The first conversation is
-              always on the house.
+              <br />
+              directly via phone, email or WhatsApp. The first conversation is always on the house.
             </p>
 
             <div className="contact__info" data-testid="contact-info">
@@ -109,16 +108,18 @@ export default function Contact() {
             <img
               src={ASSETS.logo}
               alt="C.S. Singhi & Associates"
-              style={{ width: 60, height: "auto", marginBottom: "0.5rem" }}
+              className="footer__logo"
             />
             <div className="footer__brand">C.S. Singhi &amp; Associates</div>
             <div>© 2026 · All Rights Reserved</div>
             <div className="footer__love">
-              Designed with love in the Himalayas.
+              Designed with love
+              <br />
+              By Arushi Singhi &amp; Urja Singhi
             </div>
           </div>
           <div className="footer__col">
-            <div>Gangtok · Delhi · Mumbai</div>
+            <div>Gangtok</div>
             <div>{CONTACT.address}</div>
             <div>{CONTACT.phone}</div>
             <div>{CONTACT.email}</div>
@@ -127,7 +128,6 @@ export default function Contact() {
             <div>COA · Council of Architecture</div>
             <div>IIA · Indian Institute of Architects</div>
             <div>Instagram · LinkedIn</div>
-            <div>Site by Arushi &amp; Urja Singhi</div>
           </div>
         </div>
       </footer>

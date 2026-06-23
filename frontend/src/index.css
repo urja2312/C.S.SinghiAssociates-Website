@@ -2213,6 +2213,31 @@ button {
     margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+/* Fully centered text variant */
+.contact__grid--centered {
+    text-align: center;
+}
+
+.contact__grid--centered .kicker {
+    display: block;
+}
+
+.contact__grid--centered .contact__lede {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact__grid--centered .contact__info {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact__grid--centered .contact__row {
+    text-align: left;
+}
+
 .contact__headline {
     font-family: var(--font-sans);
     font-weight: 700;
@@ -2406,13 +2431,22 @@ button {
     margin-bottom: 0.4rem;
 }
 
+.footer__logo {
+    width: clamp(110px, 9vw, 140px);
+    height: auto;
+    margin-bottom: 0.85rem;
+    display: block;
+}
+
 .footer__love {
     font-family: "EB Garamond", "Cormorant Garamond", serif;
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--wood);
     letter-spacing: 0;
     text-transform: none;
+    line-height: 1.45;
+    margin-top: 0.35rem;
 }
 
 /* ============================================================
