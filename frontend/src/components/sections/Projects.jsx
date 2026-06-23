@@ -32,11 +32,11 @@ export default function Projects() {
 
       gsap.from(".project-card", {
         opacity: 0,
-        y: 40,
-        duration: 0.7,
-        stagger: 0.08,
+        duration: 0.6,
+        stagger: 0.06,
         ease: "expo.out",
-        scrollTrigger: { trigger: ".projects__viewport", start: "top 80%", once: true },
+        clearProps: "opacity",
+        scrollTrigger: { trigger: ".projects__viewport", start: "top 90%", once: true },
       });
     }, sectionRef);
     return () => ctx.revert();

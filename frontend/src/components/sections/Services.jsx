@@ -31,13 +31,13 @@ export default function Services() {
 
       gsap.from(".service-card", {
         opacity: 0,
-        y: 40,
-        duration: 0.7,
-        stagger: 0.08,
+        duration: 0.6,
+        stagger: 0.06,
         ease: "expo.out",
+        clearProps: "opacity",
         scrollTrigger: {
           trigger: ".services__cards",
-          start: "top 80%",
+          start: "top 90%",
           once: true,
         },
       });

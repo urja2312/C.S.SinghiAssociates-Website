@@ -1,24 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import axios from "axios";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionDivider from "../site/SectionDivider";
 import { CONTACT, ASSETS } from "../../lib/siteData";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
 export default function Contact() {
   const ref = useRef(null);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [status, setStatus] = useState({ state: "idle", msg: "" });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -51,61 +39,19 @@ export default function Contact() {
           once: true,
         },
       });
-
-      gsap.from(".contact__form", {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: "expo.out",
-        scrollTrigger: {
-          trigger: ".contact__form",
-          start: "top 85%",
-          once: true,
-        },
-      });
     }, ref);
     return () => ctx.revert();
   }, []);
 
-  const onChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
-      setStatus({ state: "err", msg: "Name, email and message are required." });
-      return;
-    }
-    setStatus({ state: "loading", msg: "Sending…" });
-    try {
-      await axios.post(`${API}/contact`, form);
-      setStatus({
-        state: "ok",
-        msg: "Thank you — we'll be in touch within 48 hours.",
-      });
-      setForm({ name: "", email: "", subject: "", message: "" });
-      // Also open mailto as a parallel channel (non-blocking)
-      // (commented out so we don't trigger a download/redirect popup)
-    } catch (err) {
-      const msg =
-        err?.response?.data?.detail?.[0]?.msg ||
-        err?.response?.data?.detail ||
-        "Could not submit. Please try email directly.";
-      setStatus({ state: "err", msg: typeof msg === "string" ? msg : "Submission failed." });
-    }
-  };
-
   return (
     <section
       id="contact"
-      className="section contact"
+      className="section contact contact--no-form"
       ref={ref}
       data-testid="section-contact"
     >
-      <SectionDivider label="06 · Contact" />
       <div className="section__inner">
-        <div className="contact__grid">
+        <div className="contact__grid contact__grid--single">
           <div>
             <div className="kicker" style={{ marginBottom: "1rem" }}>
               Let&rsquo;s begin a conversation
@@ -116,8 +62,9 @@ export default function Contact() {
               <em>that lasts.</em>
             </h2>
             <p className="contact__lede">
-              Whether you have a plot, a sketch, or simply a vision — write to
-              us. The first conversation is always on the house.
+              Whether you have a plot, a sketch, or simply a vision — reach out
+              directly via phone, email or WhatsApp. The first conversation is
+              always on the house.
             </p>
 
             <div className="contact__info" data-testid="contact-info">
@@ -153,77 +100,6 @@ export default function Contact() {
               </a>
             </div>
           </div>
-
-          <form
-            className="contact__form"
-            onSubmit={onSubmit}
-            data-testid="contact-form"
-          >
-            <div className="contact__field">
-              <label htmlFor="cname">Name</label>
-              <input
-                id="cname"
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={onChange}
-                data-testid="contact-name"
-                autoComplete="name"
-              />
-            </div>
-            <div className="contact__field">
-              <label htmlFor="cemail">Email</label>
-              <input
-                id="cemail"
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={onChange}
-                data-testid="contact-email-input"
-                autoComplete="email"
-              />
-            </div>
-            <div className="contact__field">
-              <label htmlFor="csubject">Subject</label>
-              <input
-                id="csubject"
-                type="text"
-                name="subject"
-                value={form.subject}
-                onChange={onChange}
-                data-testid="contact-subject"
-              />
-            </div>
-            <div className="contact__field">
-              <label htmlFor="cmessage">Message</label>
-              <textarea
-                id="cmessage"
-                name="message"
-                rows={4}
-                value={form.message}
-                onChange={onChange}
-                data-testid="contact-message"
-              />
-            </div>
-            <button
-              type="submit"
-              className="contact__submit"
-              disabled={status.state === "loading"}
-              data-testid="contact-submit"
-            >
-              {status.state === "loading" ? "Sending…" : "Send Message →"}
-            </button>
-            {status.state !== "idle" && status.state !== "loading" && (
-              <div
-                className={`contact__msg contact__msg--${
-                  status.state === "ok" ? "ok" : "err"
-                }`}
-                data-testid="contact-status"
-              >
-                {status.msg}
-              </div>
-            )}
-          </form>
         </div>
       </div>
 
