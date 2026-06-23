@@ -708,37 +708,41 @@ button {
 /* The building — already gold; sharper render now */
 .hero__building {
     position: absolute;
-    top: 52%;
-    left: 75%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: clamp(1100px, 110vw, 1700px);
+    width: clamp(1100px, 115vw, 1900px);
     height: auto;
-    max-height: 170vh;
+    max-height: 180vh;
     object-fit: contain;
     z-index: 2;
     mix-blend-mode: screen;
-    filter: saturate(1.05) brightness(0.85) contrast(1.05)
-        drop-shadow(0 30px 80px rgba(0, 0, 0, 0.45));
+    filter:
+        saturate(1.85)
+        brightness(1.05)
+        contrast(1.18)
+        hue-rotate(-6deg)
+        drop-shadow(0 0 60px rgba(216, 178, 122, 0.18));
     -webkit-mask-image: radial-gradient(
-        ellipse 62% 70% at 50% 50%,
+        ellipse 70% 75% at 50% 50%,
         black 0%,
-        black 58%,
-        rgba(0, 0, 0, 0.7) 78%,
-        rgba(0, 0, 0, 0.2) 92%,
+        black 55%,
+        rgba(0, 0, 0, 0.75) 76%,
+        rgba(0, 0, 0, 0.25) 92%,
         transparent 100%
     );
     mask-image: radial-gradient(
-        ellipse 62% 70% at 50% 50%,
+        ellipse 70% 75% at 50% 50%,
         black 0%,
-        black 58%,
-        rgba(0, 0, 0, 0.7) 78%,
-        rgba(0, 0, 0, 0.2) 92%,
+        black 55%,
+        rgba(0, 0, 0, 0.75) 76%,
+        rgba(0, 0, 0, 0.25) 92%,
         transparent 100%
     );
-    opacity: 1;
+    opacity: 0.92;
     animation:
         hero-building-in 1.6s var(--ease-out) 0.3s both,
-        hero-building-float 12s ease-in-out 2s infinite;
+        hero-building-float 14s ease-in-out 2s infinite;
     will-change: transform;
     pointer-events: none;
 }
