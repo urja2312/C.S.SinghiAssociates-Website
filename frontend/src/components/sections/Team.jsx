@@ -45,15 +45,30 @@ export default function Team() {
         },
       });
 
-      gsap.from(".team-card", {
+      gsap.from(".team__grid .team-card", {
         opacity: 0,
         y: 40,
         stagger: 0.08,
         duration: 0.7,
         ease: "expo.out",
+        clearProps: "opacity,transform",
         scrollTrigger: {
           trigger: ".team__grid",
-          start: "top 85%",
+          start: "top 88%",
+          once: true,
+        },
+      });
+
+      gsap.from(".team__grid--support .team-card", {
+        opacity: 0,
+        y: 30,
+        stagger: 0.07,
+        duration: 0.6,
+        ease: "expo.out",
+        clearProps: "opacity,transform",
+        scrollTrigger: {
+          trigger: ".team__grid--support",
+          start: "top 90%",
           once: true,
         },
       });
@@ -123,7 +138,7 @@ export default function Team() {
           </div>
         </div>
 
-        <div className="kicker" style={{ marginTop: "var(--space-lg)" }}>
+        <div className="kicker team__section-kicker">
           Architects &amp; Engineers
         </div>
         <div className="team__grid" data-testid="team-grid">
@@ -138,13 +153,22 @@ export default function Team() {
           ))}
         </div>
 
-        <div className="team__support">
-          Support team —{" "}
-          {SUPPORT_TEAM.map((p, i) => (
-            <span key={i}>
-              <span>{p.name}</span> ({p.role})
-              {i < SUPPORT_TEAM.length - 1 ? " · " : ""}
-            </span>
+        <div className="kicker team__section-kicker team__section-kicker--support">
+          Support Team
+        </div>
+        <div className="team__grid team__grid--support" data-testid="team-support-grid">
+          {SUPPORT_TEAM.map((m, i) => (
+            <div
+              className="team-card"
+              key={i}
+              data-testid={`team-support-${i}`}
+            >
+              <div className="team-card__portrait">{m.initials}</div>
+              <div className="team-card__body">
+                <div className="team-card__name">{m.name}</div>
+                <div className="team-card__role">{m.role}</div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

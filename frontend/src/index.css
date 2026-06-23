@@ -1859,13 +1859,13 @@ button {
 
 .team__feature {
     display: grid;
-    grid-template-columns: 0.28fr 1fr;
+    grid-template-columns: 0.4fr 1fr;
     gap: clamp(1.5rem, 3vw, 2.25rem);
     background: var(--ink);
     color: var(--canvas);
-    padding: clamp(1.25rem, 2.25vw, 1.75rem);
+    padding: clamp(1.5rem, 2.5vw, 2rem);
     margin-bottom: 1rem;
-    max-width: 880px;
+    max-width: 920px;
     position: relative;
     z-index: 2;
 }
@@ -1937,7 +1937,8 @@ button {
     position: relative;
     overflow: hidden;
     filter: sepia(20%);
-    max-width: 200px;
+    max-width: 280px;
+    width: 100%;
 }
 
 .team__portrait--placeholder {
@@ -1946,7 +1947,7 @@ button {
     align-items: center;
     justify-content: center;
     font-family: "EB Garamond", "Cormorant Garamond", serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
     color: rgba(249, 246, 240, 0.65);
     font-style: italic;
     filter: none;
@@ -1997,12 +1998,32 @@ button {
     max-width: 60ch;
 }
 
+.team__section-kicker {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.25rem;
+    text-align: center;
+    display: block;
+}
+
+.team__section-kicker--support {
+    margin-top: clamp(2rem, 4vw, 3rem);
+}
+
 .team__grid {
     margin-top: var(--space-md);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
     max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Support team — 4 cards in a single row, centered */
+.team__grid--support {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin-top: 0;
 }
 
 .team-card {

@@ -195,7 +195,7 @@ export const PROJECTS = [
 export const TEAM_LEADS = {
   principal: {
     eyebrow: "Founding Principal",
-    name: "Chhatra S. Singhi",
+    name: "Ar. Chhatra S. Singhi",
     role: "Proprietor · Architect",
     initials: "CS",
     quote:
@@ -203,7 +203,7 @@ export const TEAM_LEADS = {
   },
   architect: {
     eyebrow: "Architect",
-    name: "Sakshi Singhi",
+    name: "Ar. Sakshi Singhi",
     role: "Architect · Studio Lead",
     initials: "SS",
     quote:
@@ -221,10 +221,10 @@ export const TEAM_GRID = [
 ];
 
 export const SUPPORT_TEAM = [
-  { name: "Prakash Subba", role: "Site Inspector" },
-  { name: "Shalini Upadhay", role: "Accountant" },
-  { name: "Aruna Chettri", role: "Assistant Accountant" },
-  { name: "Puspa Nirola", role: "Receptionist" },
+  { name: "Prakash Subba", role: "Site Inspector", initials: "PS" },
+  { name: "Shalini Upadhay", role: "Accountant", initials: "SU" },
+  { name: "Aruna Chettri", role: "Assistant Accountant", initials: "AC" },
+  { name: "Puspa Nirola", role: "Receptionist", initials: "PN" },
 ];
 
 export const JOBS = [
