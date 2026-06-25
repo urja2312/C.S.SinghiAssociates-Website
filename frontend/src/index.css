@@ -2011,19 +2011,31 @@ button {
 
 .team__grid {
     margin-top: var(--space-md);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.25rem;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
 }
 
-/* Support team — 4 cards in a single row, centered */
+.team__grid .team-card {
+    flex: 0 1 calc((100% - 2.5rem) / 3);
+    min-width: 240px;
+    max-width: 380px;
+}
+
+/* Non-Technical Team — 5 members, 5 across on wide, wrap+center on narrow */
 .team__grid--support {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1200px;
+    max-width: 1280px;
     margin-top: 0;
+}
+
+.team__grid--support .team-card {
+    flex: 0 1 calc((100% - 5rem) / 5);
+    min-width: 200px;
+    max-width: 260px;
 }
 
 .team-card {

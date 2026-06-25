@@ -203,8 +203,8 @@ export const TEAM_LEADS = {
   },
   architect: {
     eyebrow: "Architect",
-    name: "Ar. Sakshi Singhi",
-    role: "Architect · Studio Lead",
+    name: "Ar. Saakshi Singhi",
+    role: "Studio Lead",
     initials: "SS",
     quote:
       "Every building we draw is a quiet promise — to the land that holds it, and the family that will live inside.",
@@ -217,14 +217,16 @@ export const TEAM_GRID = [
   { name: "Chelsea Palmo Bhutia", role: "Architect", initials: "CB" },
   { name: "Rikzum Rinchen Bhutia", role: "Architect", initials: "RB" },
   { name: "Jessica Tiruwa", role: "Civil Engineer", initials: "JT" },
-  { name: "Tenzing Palkye Bhutia", role: "Civil Engineer", initials: "TB" },
+  { name: "Dawa Bhutia", role: "Civil Draftsman", initials: "DB" },
+  { name: "Deepak Tamang", role: "Civil Engineer (Diploma)", initials: "DT" },
 ];
 
 export const SUPPORT_TEAM = [
   { name: "Prakash Subba", role: "Site Inspector", initials: "PS" },
   { name: "Shalini Upadhay", role: "Accountant", initials: "SU" },
-  { name: "Aruna Chettri", role: "Assistant Accountant", initials: "AC" },
-  { name: "Puspa Nirola", role: "Receptionist", initials: "PN" },
+  { name: "Aruna Chettri", role: "Manager", initials: "AC" },
+  { name: "Pushpa Nirola", role: "Assistant Manager", initials: "PN" },
+  { name: "Sushila Chettri", role: "Receptionist", initials: "SC" },
 ];
 
 export const JOBS = [

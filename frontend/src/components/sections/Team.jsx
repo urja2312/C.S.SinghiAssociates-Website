@@ -139,7 +139,7 @@ export default function Team() {
         </div>
 
         <div className="kicker team__section-kicker">
-          Architects &amp; Engineers
+          Technical Team
         </div>
         <div className="team__grid" data-testid="team-grid">
           {TEAM_GRID.map((m, i) => (
@@ -154,7 +154,7 @@ export default function Team() {
         </div>
 
         <div className="kicker team__section-kicker team__section-kicker--support">
-          Support Team
+          Non-Technical Team
         </div>
         <div className="team__grid team__grid--support" data-testid="team-support-grid">
           {SUPPORT_TEAM.map((m, i) => (
