@@ -12,6 +12,12 @@ export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+
+  // Reset gallery index when project changes
+  useEffect(() => {
+    setGalleryIndex(0);
+  }, [activeProject]);
 
   // Reveal animations only — no pinned horizontal scrub
   useEffect(() => {
@@ -192,112 +198,175 @@ export default function Projects() {
         aria-modal="true"
         aria-hidden={!activeProject}
       >
-        {activeProject && (
-          <div className="project-drawer__inner">
-            <button
-              className="project-drawer__close"
-              onClick={() => setActiveProject(null)}
-              data-testid="project-drawer-close"
-              aria-label="Close project details"
-            >
-              ×
-            </button>
-            <div className="kicker">— {activeProject.index} / Featured Project</div>
-            <h3 className="project-drawer__title">{activeProject.title}</h3>
-            <div className="project-drawer__loc">
-              {activeProject.location} · {activeProject.year} ·{" "}
-              {activeProject.status}
-            </div>
-            <div className="project-drawer__grid">
-              <div>
-                <p
-                  style={{
-                    fontSize: "var(--text-base)",
-                    color: "var(--ink)",
-                    lineHeight: 1.7,
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  {activeProject.description}
-                </p>
-                <div className="kicker" style={{ marginBottom: "0.75rem" }}>
-                  Amenities
-                </div>
-                <ul
-                  style={{
-                    listStyle: "none",
-                    padding: 0,
-                    margin: 0,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.5rem",
-                  }}
-                >
-                  {activeProject.amenities.map((a, i) => (
-                    <li
-                      key={i}
-                      style={{
-                        fontSize: "var(--text-sm)",
-                        color: "var(--concrete)",
-                        paddingLeft: "1rem",
-                        position: "relative",
-                      }}
-                    >
-                      <span
-                        style={{
-                          position: "absolute",
-                          left: 0,
-                          top: "0.6em",
-                          width: 6,
-                          height: 1,
-                          background: "var(--wood)",
-                        }}
-                      />
-                      {a}
-                    </li>
-                  ))}
-                </ul>
+        {activeProject && (() => {
+          const gallery = activeProject.gallery && activeProject.gallery.length
+            ? activeProject.gallery
+            : [activeProject.image];
+          const total = gallery.length;
+          const goPrev = () =>
+            setGalleryIndex((i) => (i - 1 + total) % total);
+          const goNext = () =>
+            setGalleryIndex((i) => (i + 1) % total);
+          const thumb1 = gallery[(galleryIndex + 1) % total];
+          const thumb2 = gallery[(galleryIndex + 2) % total];
 
-                <button
-                  className="project-drawer__cta"
-                  data-testid="project-drawer-enquire"
-                  onClick={() => {
-                    setActiveProject(null);
-                    setTimeout(() => scrollToSection("contact"), 400);
-                  }}
-                >
-                  Enquire about this project →
-                </button>
-              </div>
-              <div className="project-drawer__specs">
-                <div className="spec">
-                  <div className="spec__label">Price</div>
-                  <div className="spec__value">{activeProject.price}</div>
+          return (
+            <div className="project-drawer__inner project-drawer__inner--editorial">
+              <button
+                className="project-drawer__close"
+                onClick={() => setActiveProject(null)}
+                data-testid="project-drawer-close"
+                aria-label="Close project details"
+              >
+                ×
+              </button>
+
+              <div className="project-drawer__layout">
+                {/* LEFT — editorial copy */}
+                <div className="project-drawer__copy">
+                  <div className="project-drawer__kicker">
+                    — {activeProject.index} / Featured Project
+                  </div>
+                  <h3 className="project-drawer__title">
+                    {activeProject.title}
+                  </h3>
+                  <div className="project-drawer__meta">
+                    {activeProject.location} · {activeProject.year} ·{" "}
+                    {activeProject.status}
+                  </div>
+
+                  <p className="project-drawer__desc">
+                    {activeProject.description}
+                  </p>
+
+                  <div className="project-drawer__facts">
+                    <div className="project-drawer__fact">
+                      <div className="project-drawer__fact-label">Area</div>
+                      <div className="project-drawer__fact-value">
+                        {activeProject.area}
+                      </div>
+                    </div>
+                    <div className="project-drawer__fact">
+                      <div className="project-drawer__fact-label">Year</div>
+                      <div className="project-drawer__fact-value">
+                        {activeProject.year}
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    className="project-drawer__cta"
+                    data-testid="project-drawer-enquire"
+                    onClick={() => {
+                      setActiveProject(null);
+                      setTimeout(() => scrollToSection("contact"), 400);
+                    }}
+                  >
+                    Enquire about this project →
+                  </button>
                 </div>
-                <div className="spec">
-                  <div className="spec__label">Area</div>
-                  <div className="spec__value">{activeProject.area}</div>
-                </div>
-                <div className="spec">
-                  <div className="spec__label">Configuration</div>
-                  <div className="spec__value">{activeProject.config}</div>
-                </div>
-                <div className="spec">
-                  <div className="spec__label">Architect</div>
-                  <div className="spec__value">{activeProject.architect}</div>
-                </div>
-                <div className="spec">
-                  <div className="spec__label">Status</div>
-                  <div className="spec__value">{activeProject.status}</div>
-                </div>
-                <div className="spec">
-                  <div className="spec__label">Year</div>
-                  <div className="spec__value">{activeProject.year}</div>
+
+                {/* RIGHT — gallery */}
+                <div className="project-drawer__gallery" data-testid="project-drawer-gallery">
+                  <div className="project-drawer__gallery-grid">
+                    <div
+                      className="project-drawer__main-image"
+                      key={`main-${galleryIndex}`}
+                      data-testid="project-drawer-main-image"
+                    >
+                      <img
+                        src={gallery[galleryIndex]}
+                        alt={`${activeProject.title} — view ${galleryIndex + 1}`}
+                        draggable={false}
+                      />
+                      <button
+                        type="button"
+                        className="project-drawer__gallery-arrow project-drawer__gallery-arrow--prev"
+                        onClick={goPrev}
+                        aria-label="Previous image"
+                        data-testid="project-drawer-prev"
+                        disabled={total < 2}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                          <path d="M14 4l-7 7 7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        className="project-drawer__gallery-arrow project-drawer__gallery-arrow--next"
+                        onClick={goNext}
+                        aria-label="Next image"
+                        data-testid="project-drawer-next"
+                        disabled={total < 2}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                          <path d="M8 4l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div className="project-drawer__thumbs">
+                      <button
+                        type="button"
+                        className="project-drawer__thumb"
+                        onClick={() => setGalleryIndex((galleryIndex + 1) % total)}
+                        aria-label="Show next view"
+                        data-testid="project-drawer-thumb-1"
+                        disabled={total < 2}
+                      >
+                        <img
+                          src={thumb1}
+                          alt={`${activeProject.title} — view ${((galleryIndex + 1) % total) + 1}`}
+                          draggable={false}
+                        />
+                      </button>
+                      <button
+                        type="button"
+                        className="project-drawer__thumb"
+                        onClick={() => setGalleryIndex((galleryIndex + 2) % total)}
+                        aria-label="Show another view"
+                        data-testid="project-drawer-thumb-2"
+                        disabled={total < 3}
+                      >
+                        <img
+                          src={thumb2}
+                          alt={`${activeProject.title} — view ${((galleryIndex + 2) % total) + 1}`}
+                          draggable={false}
+                        />
+                      </button>
+                    </div>
+                  </div>
+
+                  {total > 1 && (
+                    <div
+                      className="project-drawer__dots"
+                      role="tablist"
+                      aria-label="Gallery navigation"
+                      data-testid="project-drawer-dots"
+                    >
+                      {gallery.map((_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          role="tab"
+                          aria-selected={i === galleryIndex}
+                          aria-label={`Go to image ${i + 1}`}
+                          onClick={() => setGalleryIndex(i)}
+                          className={
+                            i === galleryIndex
+                              ? "project-drawer__dot project-drawer__dot--active"
+                              : "project-drawer__dot"
+                          }
+                          data-testid={`project-drawer-dot-${i}`}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
     </section>
   );

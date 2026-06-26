@@ -129,20 +129,18 @@ export const PROJECTS = [
     year: "2024",
     status: "SOLD OUT",
     statusVariant: "wood",
-    price: "₹85L – ₹1.2 Cr",
     area: "1,800 sq ft",
-    config: "45 Villas",
-    architect: "C.S. Singhi",
     image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80&auto=format&fit=crop",
+    ],
     description:
       "Community living integrated with traditional Sikkimese architecture. Local stone and sustainable timber. Sold out within three months of launch.",
-    amenities: [
-      "Terraced gardens with native flora",
-      "Rainwater harvesting per unit",
-      "Central clubhouse with view decks",
-      "Stone-faced exteriors, indigenous timber",
-    ],
   },
   {
     id: "skyline-residency",
@@ -152,20 +150,18 @@ export const PROJECTS = [
     year: "2025",
     status: "FOR SALE",
     statusVariant: "moss",
-    price: "₹1.5 Cr – ₹3.2 Cr",
     area: "2,400 sq ft",
-    config: "3 & 4 BHK",
-    architect: "C.S. Singhi",
     image:
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600573472556-e636c2acda88?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753086-00f18fe6ba68?w=1600&q=80&auto=format&fit=crop",
+    ],
     description:
       "Seismic Zone IV compliant structure with a heated indoor swimming pool, smart home automation, and a panoramic view of Kanchenjunga.",
-    amenities: [
-      "Private terraces for every apartment",
-      "Heated indoor swimming pool",
-      "Smart home automation",
-      "Seismic Zone IV compliant structure",
-    ],
   },
   {
     id: "sky-gangtok",
@@ -175,20 +171,18 @@ export const PROJECTS = [
     year: "2026",
     status: "UNDER CONSTRUCTION",
     statusVariant: "construction",
-    price: "₹2.1 Cr onwards",
     area: "3,200 sq ft",
-    config: "4 BHK Duplex",
-    architect: "C.S. Singhi",
     image:
-      "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1200&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1600&q=80&auto=format&fit=crop",
+    gallery: [
+      "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154347-be6161a56a0c?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600566753051-6057e44dbf08?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=1600&q=80&auto=format&fit=crop",
+    ],
     description:
       "A steel-frame exoskeleton inspired by Sikkim's pine forests. The tallest residential structure in the region — with an unhindered 360° Himalayan panorama.",
-    amenities: [
-      "Rooftop infinity-edge pool",
-      "Private elevator access for penthouses",
-      "Automated climate control",
-      "24/7 concierge service",
-    ],
   },
 ];
 
