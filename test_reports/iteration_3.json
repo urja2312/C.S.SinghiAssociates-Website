@@ -1,0 +1,81 @@
+{
+  "summary": "Verified the Projects modal fix on https://himalayan.preview.emergentagent.com at 1920x1080. The project card click now opens a CENTERED MODAL POPUP (not a full-screen panel), the left copy column and right gallery column share an identical bottom edge (0px diff), all gallery navigation (next/prev arrows, dots) works, escape and backdrop-click both close the modal, and different projects load different galleries with the active dot reset to 0. All 8 requested verification points PASS. One minor content issue: the sky-gangtok thumb-1 image URL is broken (naturalWidth=0).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Projects modal — Sky Gangtok project", "issues": ["Right-column thumb-1 image URL fails to load (https://images.unsplash.com/photo-1600585154347-be6161a56a0c?w=1600... returns 404 / naturalWidth=0). The browser shows the alt text 'Sky Gangtok — view 2' instead of an image. Replace this Unsplash URL in /app/frontend/src/lib/siteData.js (sky-gangtok project, gallery[1])."]}
+    ]
+  },
+  "verification_details": {
+    "modal_is_popup_not_fullscreen": {
+      "inner_rect": "1320 x 695.39 px (left=300, right=1620, top=192.3, bottom=887.69)",
+      "viewport": "1920 x 1080",
+      "width_le_1400": true,
+      "height_le_viewport_minus_30": "695.39 <= 1050 = true",
+      "left_space": "300px",
+      "right_space": "300px",
+      "backdrop_present": true,
+      "rounded_corners_drop_shadow": "Visible in screenshot (border-radius 22px, soft drop shadow, page visible behind)"
+    },
+    "column_height_alignment": {
+      "copy_bottom": 835.6875,
+      "gallery_bottom": 835.6875,
+      "bottom_diff_px": 0.0,
+      "within_8px_tolerance": true,
+      "cta_bottom": 831.6875,
+      "dots_bottom": 835.6875,
+      "cta_vs_dots_diff_px": 4.0
+    },
+    "close_behaviors": {
+      "escape_closes": "true (opacity=0, pointer-events=none after Escape)",
+      "backdrop_click_closes": "true (opacity=0, pointer-events=none after click on data-testid='project-drawer-backdrop')"
+    },
+    "left_column_content_himalayan": "— 01 / FEATURED PROJECT | The Himalayan Heights | NAMCHI, SIKKIM · 2024 · SOLD OUT | description | AREA 1,800 sq ft | YEAR 2024 | ENQUIRE ABOUT THIS PROJECT →",
+    "removed_fields_whole_word_check": {
+      "price": "absent",
+      "configuration": "absent",
+      "architect": "absent (whole-word; the description text 'architecture' is a substring but not the standalone fact label)",
+      "amenities": "absent",
+      "status_as_separate_fact": "absent (Status only appears inside the meta line e.g. '· SOLD OUT')"
+    },
+    "right_column_structure": {
+      "main_image_testid": "project-drawer-main-image (wrapper div with inner <img>)",
+      "thumb1_testid": "project-drawer-thumb-1",
+      "thumb2_testid": "project-drawer-thumb-2",
+      "dots_count": 5,
+      "active_dot_width_px": 24,
+      "inactive_dot_width_px": 9
+    },
+    "gallery_navigation": {
+      "next_changes_main_src": true,
+      "prev_returns_to_initial_src": true,
+      "dot_2_click": "active dot index becomes 2 (widths: [9.3,9,23.7,9,9]) and main image src updates to 3rd gallery URL"
+    },
+    "per_project_galleries": {
+      "himalayan_heights_initial_main": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00...",
+      "skyline_residency_initial_main": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6...",
+      "sky_gangtok_initial_main": "https://images.unsplash.com/photo-1486718448742-163732cd1544...",
+      "active_dot_reset_to_0_on_each_open": true
+    }
+  },
+  "test_report_links": [],
+  "action_items": [
+    "(Minor) Replace the broken Unsplash URL for sky-gangtok gallery image #2 (currently photo-1600585154347-be6161a56a0c) in /app/frontend/src/lib/siteData.js — it loads with naturalWidth=0 and exposes its alt text 'Sky Gangtok — view 2' in the UI."
+  ],
+  "critical_code_review_comments": [
+    "Modal layout implementation is solid: position:fixed inset:0 backdrop, .project-drawer__inner with max-width:1320px, max-height:calc(100vh - 30px), border-radius:22px, drop-shadow — produces a proper centered popup. Backdrop has its own data-testid for click-to-close, which is great for testability.",
+    "Two-column equal height achieved via grid + align-items:stretch on .project-drawer__layout and flex column with justify-content:space-between on .project-drawer__copy. Measured bottoms align at exactly 0.0px on a 1920x1080 viewport.",
+    "data-testid coverage is excellent: project-drawer, project-drawer-backdrop, project-drawer-main-image, project-drawer-thumb-1/2, project-drawer-dot-0..4, project-drawer-next, project-drawer-prev, project-drawer-enquire-*. Easy to automate.",
+    "Minor: data-testid='project-drawer-main-image' is set on the wrapper <div>, not the inner <img>. This is fine but worth noting for any future test that wants to read .src directly — must query the inner img. Could optionally move the testid to the <img> itself for ergonomic parity with the thumbs/main src reads."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100% (8/8 requirements PASS; 1 unrelated minor content issue: broken image URL)"},
+  "test_credentials": "N/A (no auth involved)",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Modal popup + equal-height columns fix on the Projects section is fully verified at 1920x1080. To re-test: navigate to root URL, click [data-testid='project-card-himalayan-heights'], then evaluate getBoundingClientRect on .project-drawer__inner (expect ~1320 x ~695), .project-drawer__copy and [data-testid='project-drawer-gallery'] (expect identical .bottom). Next/prev arrows: data-testid='project-drawer-next' / -prev. Dots: data-testid='project-drawer-dot-{0..4}'. The main image is the <img> INSIDE the wrapper div data-testid='project-drawer-main-image'. Backdrop is data-testid='project-drawer-backdrop'. Escape and backdrop-click both close (opacity→0, pointer-events→none).",
+  "rca of the issue": "N/A — the previously reported issues (full-screen panel; unequal column heights) are both resolved. The only remaining (minor, unrelated) issue is a broken Unsplash URL for one thumbnail of the Sky Gangtok project; replace the URL in siteData.js."
+}

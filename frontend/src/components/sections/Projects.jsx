@@ -198,6 +198,12 @@ export default function Projects() {
         aria-modal="true"
         aria-hidden={!activeProject}
       >
+        <div
+          className="project-drawer__backdrop"
+          onClick={() => setActiveProject(null)}
+          data-testid="project-drawer-backdrop"
+          aria-hidden="true"
+        />
         {activeProject && (() => {
           const gallery = activeProject.gallery && activeProject.gallery.length
             ? activeProject.gallery

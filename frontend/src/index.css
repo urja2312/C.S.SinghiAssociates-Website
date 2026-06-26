@@ -1718,42 +1718,68 @@ button {
 /* Project detail drawer */
 .project-drawer {
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: 100vh;
-    background: var(--canvas);
+    inset: 0;
     z-index: 970;
-    transform: translateY(100%);
-    transition: transform 500ms var(--ease-out);
-    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 350ms var(--ease-out);
+    padding: clamp(1rem, 3vw, 2.25rem);
 }
 
 .project-drawer--open {
-    transform: translateY(0);
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* Backdrop wash — click anywhere outside to close */
+.project-drawer__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 26, 40, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    cursor: pointer;
 }
 
 .project-drawer__inner {
     width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 2.5rem var(--gutter) var(--gutter);
+    max-width: 1320px;
+    max-height: calc(100vh - clamp(2rem, 6vw, 4.5rem));
+    background: var(--canvas);
+    border-radius: 22px;
+    box-shadow:
+        0 30px 80px -20px rgba(20, 26, 40, 0.55),
+        0 10px 40px -10px rgba(20, 26, 40, 0.35);
+    overflow: hidden;
+    position: relative;
+    transform: translateY(24px) scale(0.985);
+    transition:
+        transform 450ms var(--ease-out),
+        opacity 350ms var(--ease-out);
+    opacity: 0;
+}
+
+.project-drawer--open .project-drawer__inner {
+    transform: translateY(0) scale(1);
+    opacity: 1;
 }
 
 /* Editorial gallery-first variant */
 .project-drawer__inner--editorial {
-    padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 5rem);
-    min-height: 100vh;
+    padding: clamp(2rem, 3.5vw, 3.25rem) clamp(2rem, 3.5vw, 3.5rem);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .project-drawer__close {
     position: absolute;
-    top: clamp(1.25rem, 2vw, 2rem);
-    right: clamp(1.25rem, 2vw, 2rem);
+    top: clamp(1rem, 1.5vw, 1.5rem);
+    right: clamp(1rem, 1.5vw, 1.5rem);
     width: 44px;
     height: 44px;
     border-radius: 999px;
@@ -1764,15 +1790,14 @@ button {
     font-family: var(--font-mono);
     font-size: 1.1rem;
     color: var(--ink);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.95);
     cursor: pointer;
     transition:
         background 250ms var(--ease-out),
         color 250ms var(--ease-out),
         border-color 250ms var(--ease-out),
         transform 250ms var(--ease-out);
-    z-index: 4;
+    z-index: 6;
 }
 
 .project-drawer__close:hover {
@@ -1786,16 +1811,19 @@ button {
 .project-drawer__layout {
     display: grid;
     grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
-    gap: clamp(2rem, 5vw, 5rem);
+    gap: clamp(2rem, 4vw, 4rem);
     align-items: stretch;
     width: 100%;
+    flex: 1;
+    min-height: 0;
 }
 
 .project-drawer__copy {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 0.25rem 0;
+    min-height: 0;
 }
 
 .project-drawer__kicker {
@@ -1804,34 +1832,34 @@ button {
     letter-spacing: 0.26em;
     text-transform: uppercase;
     color: var(--wood);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .project-drawer__title {
     font-family: var(--font-sans);
-    font-size: clamp(2rem, 4.2vw, 3.5rem);
+    font-size: clamp(1.8rem, 3.4vw, 2.85rem);
     font-weight: 700;
     color: var(--ink);
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.1rem;
     line-height: 1;
     letter-spacing: -0.02em;
 }
 
 .project-drawer__meta {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--wood);
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.75rem;
 }
 
 .project-drawer__desc {
     font-family: var(--font-sans);
-    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
-    line-height: 1.7;
+    font-size: clamp(0.92rem, 1vw, 1rem);
+    line-height: 1.65;
     color: var(--ink);
-    margin: 0 0 2.5rem;
+    margin: 0 0 1.75rem;
     max-width: 38ch;
     font-weight: 300;
 }
@@ -1839,46 +1867,48 @@ button {
 .project-drawer__facts {
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
-    margin-bottom: 2.5rem;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
 }
 
 .project-drawer__fact {
     border-top: 1px solid rgba(193, 147, 90, 0.5);
-    padding-top: 1rem;
+    padding-top: 0.85rem;
     max-width: 320px;
 }
 
 .project-drawer__fact-label {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.26em;
     text-transform: uppercase;
     color: var(--wood);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .project-drawer__fact-value {
     font-family: var(--font-sans);
-    font-size: clamp(1rem, 1.1vw, 1.15rem);
+    font-size: clamp(0.95rem, 1.05vw, 1.1rem);
     color: var(--ink);
     line-height: 1.3;
     font-weight: 500;
 }
 
-/* ---- Gallery ---- */
+/* ---- Gallery — fills column height ---- */
 .project-drawer__gallery {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.1rem;
     width: 100%;
+    min-height: 0;
 }
 
 .project-drawer__gallery-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
-    gap: 1rem;
-    height: clamp(420px, 64vh, 640px);
+    gap: 0.85rem;
+    flex: 1;
+    min-height: 0;
 }
 
 .project-drawer__main-image {
@@ -1906,8 +1936,8 @@ button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.92);
     border: none;
@@ -1936,13 +1966,13 @@ button {
     pointer-events: none;
 }
 
-.project-drawer__gallery-arrow--prev { left: 1rem; }
-.project-drawer__gallery-arrow--next { right: 1rem; }
+.project-drawer__gallery-arrow--prev { left: 0.85rem; }
+.project-drawer__gallery-arrow--next { right: 0.85rem; }
 
 .project-drawer__thumbs {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    gap: 0.85rem;
     height: 100%;
     min-height: 0;
 }
@@ -1983,7 +2013,8 @@ button {
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
-    padding-top: 0.25rem;
+    padding-top: 0.15rem;
+    flex-shrink: 0;
 }
 
 .project-drawer__dot {
@@ -2013,11 +2044,11 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 0.85rem;
-    padding: 1rem 1.75rem;
+    padding: 0.95rem 1.5rem;
     background: var(--ink);
     color: var(--canvas);
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.26em;
     text-transform: uppercase;
     border: none;
@@ -2035,20 +2066,22 @@ button {
 @media (max-width: 900px) {
     .project-drawer__layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.75rem;
     }
     .project-drawer__gallery-grid {
         grid-template-columns: 1fr;
-        height: auto;
     }
     .project-drawer__thumbs {
         grid-template-rows: none;
         grid-template-columns: 1fr 1fr;
-        height: 200px;
+        height: 180px;
+    }
+    .project-drawer__inner {
+        max-height: calc(100vh - 1.5rem);
+        border-radius: 16px;
     }
     .project-drawer__inner--editorial {
-        padding: 4.5rem 1.25rem 2rem;
-        justify-content: flex-start;
+        padding: 4rem 1.25rem 1.5rem;
     }
 }
 
