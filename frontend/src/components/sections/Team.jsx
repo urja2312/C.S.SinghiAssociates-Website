@@ -115,8 +115,17 @@ export default function Team() {
 
           {/* Sakshi feature */}
           <div className="team__feature team__feature--alt" data-testid="team-architect">
-            <div className="team__portrait team__portrait--placeholder">
-              {TEAM_LEADS.architect.initials}
+            <div
+              className={`team__portrait ${
+                TEAM_LEADS.architect.photo ? "team__portrait--photo" : "team__portrait--placeholder"
+              }`}
+              style={
+                TEAM_LEADS.architect.photo
+                  ? { backgroundImage: `url("${TEAM_LEADS.architect.photo}")` }
+                  : undefined
+              }
+            >
+              {TEAM_LEADS.architect.photo ? null : TEAM_LEADS.architect.initials}
             </div>
             <div className="team__feature-body">
               <div className="team__feature-eyebrow" style={{ color: "var(--wood)" }}>
@@ -144,7 +153,12 @@ export default function Team() {
         <div className="team__grid" data-testid="team-grid">
           {TEAM_GRID.map((m, i) => (
             <div className="team-card" key={i} data-testid={`team-member-${i}`}>
-              <div className="team-card__portrait">{m.initials}</div>
+              <div
+                className={`team-card__portrait ${m.photo ? "team-card__portrait--photo" : ""}`}
+                style={m.photo ? { backgroundImage: `url("${m.photo}")` } : undefined}
+              >
+                {m.photo ? null : m.initials}
+              </div>
               <div className="team-card__body">
                 <div className="team-card__name">{m.name}</div>
                 <div className="team-card__role">{m.role}</div>
@@ -163,7 +177,12 @@ export default function Team() {
               key={i}
               data-testid={`team-support-${i}`}
             >
-              <div className="team-card__portrait">{m.initials}</div>
+              <div
+                className={`team-card__portrait ${m.photo ? "team-card__portrait--photo" : ""}`}
+                style={m.photo ? { backgroundImage: `url("${m.photo}")` } : undefined}
+              >
+                {m.photo ? null : m.initials}
+              </div>
               <div className="team-card__body">
                 <div className="team-card__name">{m.name}</div>
                 <div className="team-card__role">{m.role}</div>

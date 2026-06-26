@@ -239,16 +239,36 @@ export const TEAM_LEADS = {
     name: "Ar. Saakshi Singhi",
     role: "Studio Lead",
     initials: "SS",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/31srbk52_Saakshi%20Singhi.png",
     quote:
       "Every building we draw is a quiet promise — to the land that holds it, and the family that will live inside.",
   },
 };
 
 export const TEAM_GRID = [
-  { name: "Abhiraj Sharma", role: "Architect", initials: "AS" },
-  { name: "Yorika Moktan", role: "Architect", initials: "YM" },
+  {
+    name: "Abhiraj Sharma",
+    role: "Architect",
+    initials: "AS",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/q6nwij9e_Abhiraj%20Sharma.png",
+  },
+  {
+    name: "Yorika Moktan",
+    role: "Architect",
+    initials: "YM",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/m1a20q13_Ar.%20Rikzum%20Chettri.jpg",
+  },
   { name: "Chelsea Palmo Bhutia", role: "Architect", initials: "CB" },
-  { name: "Rikzum Rinchen Bhutia", role: "Architect", initials: "RB" },
+  {
+    name: "Rikzum Rinchen Bhutia",
+    role: "Architect",
+    initials: "RB",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/d9z6daha_Rikzum.jpg",
+  },
   { name: "Jessica Tiruwa", role: "Civil Engineer", initials: "JT" },
   { name: "Dawa Bhutia", role: "Civil Draftsman", initials: "DB" },
   { name: "Deepak Tamang", role: "Civil Engineer (Diploma)", initials: "DT" },
@@ -257,7 +277,13 @@ export const TEAM_GRID = [
 export const SUPPORT_TEAM = [
   { name: "Prakash Subba", role: "Site Inspector", initials: "PS" },
   { name: "Shalini Upadhay", role: "Accountant", initials: "SU" },
-  { name: "Aruna Chettri", role: "Manager", initials: "AC" },
+  {
+    name: "Aruna Chettri",
+    role: "Manager",
+    initials: "AC",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/5n712pzl_Aruna%20Chettri%20.png",
+  },
   { name: "Pushpa Nirola", role: "Assistant Manager", initials: "PN" },
   { name: "Sushila Chettri", role: "Receptionist", initials: "SC" },
 ];

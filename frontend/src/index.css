@@ -2240,6 +2240,14 @@ button {
     filter: none;
 }
 
+/* Featured-card photo variant — actual photo replaces the placeholder */
+.team__portrait--photo {
+    background-color: var(--stone);
+    background-size: cover;
+    background-position: center top;
+    filter: none;
+}
+
 .team__feature-body {
     display: flex;
     flex-direction: column;
@@ -2352,6 +2360,18 @@ button {
 .team-card:hover .team-card__portrait {
     filter: sepia(0%) brightness(1.05);
     transform: scale(1.02);
+}
+
+/* Real photo variant — drop the gradient placeholder + italic initials */
+.team-card__portrait--photo {
+    background-image: none;
+    background-color: var(--stone);
+    color: transparent;
+    filter: none;
+}
+
+.team-card:hover .team-card__portrait--photo {
+    filter: brightness(1.04);
 }
 
 .team-card__body {
