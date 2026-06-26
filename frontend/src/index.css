@@ -2309,8 +2309,8 @@ button {
 
 .team__grid .team-card {
     flex: 0 1 calc((100% - 2.5rem) / 3);
-    min-width: 240px;
-    max-width: 380px;
+    min-width: 200px;
+    max-width: 300px;
 }
 
 /* Non-Technical Team — 5 members, 5 across on wide, wrap+center on narrow */
@@ -2321,8 +2321,8 @@ button {
 
 .team__grid--support .team-card {
     flex: 0 1 calc((100% - 5rem) / 5);
-    min-width: 200px;
-    max-width: 260px;
+    min-width: 220px;
+    max-width: 320px;
 }
 
 .team-card {
