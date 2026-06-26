@@ -8,6 +8,8 @@ export const ASSETS = {
   logo: "https://customer-assets.emergentagent.com/job_6eb074fe-1740-4003-b10a-e49bd9643602/artifacts/17tvwskj_logo.png",
   logoIcon: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/ndakjvqy_image.png",
   logoFull: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/jl0u46ay_image.png",
+  contactBg: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/obrv3fa7_image.png",
+  teamGridsBg: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/8m2i8edn_image.png",
 };
 
 /* CONTENT: Architectural photos used for collage + project cards.
