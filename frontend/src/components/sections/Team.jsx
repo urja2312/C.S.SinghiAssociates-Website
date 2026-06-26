@@ -6,7 +6,6 @@ import {
   TEAM_LEADS,
   TEAM_GRID,
   SUPPORT_TEAM,
-  ASSETS,
 } from "../../lib/siteData";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -139,47 +138,38 @@ export default function Team() {
           </div>
         </div>
 
-        <div
-          className="team__grids-wrap"
-          data-testid="team-grids-wrap"
-          style={{ "--team-grids-bg": `url("${ASSETS.teamGridsBg}")` }}
-        >
-          <div className="team__grids-bg" aria-hidden="true" />
-          <div className="team__grids-inner">
-            <div className="kicker team__section-kicker">
-              Technical Team
+        <div className="kicker team__section-kicker">
+          Technical Team
+        </div>
+        <div className="team__grid" data-testid="team-grid">
+          {TEAM_GRID.map((m, i) => (
+            <div className="team-card" key={i} data-testid={`team-member-${i}`}>
+              <div className="team-card__portrait">{m.initials}</div>
+              <div className="team-card__body">
+                <div className="team-card__name">{m.name}</div>
+                <div className="team-card__role">{m.role}</div>
+              </div>
             </div>
-            <div className="team__grid" data-testid="team-grid">
-              {TEAM_GRID.map((m, i) => (
-                <div className="team-card" key={i} data-testid={`team-member-${i}`}>
-                  <div className="team-card__portrait">{m.initials}</div>
-                  <div className="team-card__body">
-                    <div className="team-card__name">{m.name}</div>
-                    <div className="team-card__role">{m.role}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          ))}
+        </div>
 
-            <div className="kicker team__section-kicker team__section-kicker--support">
-              Non-Technical Team
+        <div className="kicker team__section-kicker team__section-kicker--support">
+          Non-Technical Team
+        </div>
+        <div className="team__grid team__grid--support" data-testid="team-support-grid">
+          {SUPPORT_TEAM.map((m, i) => (
+            <div
+              className="team-card"
+              key={i}
+              data-testid={`team-support-${i}`}
+            >
+              <div className="team-card__portrait">{m.initials}</div>
+              <div className="team-card__body">
+                <div className="team-card__name">{m.name}</div>
+                <div className="team-card__role">{m.role}</div>
+              </div>
             </div>
-            <div className="team__grid team__grid--support" data-testid="team-support-grid">
-              {SUPPORT_TEAM.map((m, i) => (
-                <div
-                  className="team-card"
-                  key={i}
-                  data-testid={`team-support-${i}`}
-                >
-                  <div className="team-card__portrait">{m.initials}</div>
-                  <div className="team-card__body">
-                    <div className="team-card__name">{m.name}</div>
-                    <div className="team-card__role">{m.role}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

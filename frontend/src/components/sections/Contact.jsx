@@ -46,13 +46,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="section contact contact--no-form contact--photo-bg"
+      className="section contact contact--no-form"
       ref={ref}
       data-testid="section-contact"
-      style={{ "--contact-bg": `url("${ASSETS.contactBg}")` }}
     >
-      <div className="contact__bg-image" aria-hidden="true" />
-      <div className="contact__bg-overlay" aria-hidden="true" />
       <div className="section__inner">
         <div className="contact__grid contact__grid--single contact__grid--centered">
           <div>
