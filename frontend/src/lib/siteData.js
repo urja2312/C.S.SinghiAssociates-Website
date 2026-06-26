@@ -176,7 +176,7 @@ export const PROJECTS = [
       "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1600&q=80&auto=format&fit=crop",
     gallery: [
       "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154347-be6161a56a0c?w=1600&q=80&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1600&q=80&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1600566753051-6057e44dbf08?w=1600&q=80&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=1600&q=80&auto=format&fit=crop",
