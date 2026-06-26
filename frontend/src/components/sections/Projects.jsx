@@ -245,20 +245,38 @@ export default function Projects() {
                     {activeProject.description}
                   </p>
 
-                  <div className="project-drawer__facts">
-                    <div className="project-drawer__fact">
-                      <div className="project-drawer__fact-label">Area</div>
-                      <div className="project-drawer__fact-value">
-                        {activeProject.area}
+                  {activeProject.phases && activeProject.phases.length ? (
+                    <div className="project-drawer__phases" data-testid="project-drawer-phases">
+                      {activeProject.phases.map((p, i) => (
+                        <div className="project-drawer__phase" key={i}>
+                          <div className="project-drawer__phase-label">
+                            {p.label}
+                          </div>
+                          <div className="project-drawer__phase-meta">
+                            {p.area} · {p.status}
+                          </div>
+                          <div className="project-drawer__phase-period">
+                            {p.period}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="project-drawer__facts">
+                      <div className="project-drawer__fact">
+                        <div className="project-drawer__fact-label">Area</div>
+                        <div className="project-drawer__fact-value">
+                          {activeProject.area}
+                        </div>
+                      </div>
+                      <div className="project-drawer__fact">
+                        <div className="project-drawer__fact-label">Year</div>
+                        <div className="project-drawer__fact-value">
+                          {activeProject.year}
+                        </div>
                       </div>
                     </div>
-                    <div className="project-drawer__fact">
-                      <div className="project-drawer__fact-label">Year</div>
-                      <div className="project-drawer__fact-value">
-                        {activeProject.year}
-                      </div>
-                    </div>
-                  </div>
+                  )}
 
                   <button
                     className="project-drawer__cta"

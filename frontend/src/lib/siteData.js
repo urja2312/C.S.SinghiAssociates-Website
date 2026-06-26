@@ -184,6 +184,48 @@ export const PROJECTS = [
     description:
       "A steel-frame exoskeleton inspired by Sikkim's pine forests. The tallest residential structure in the region — with an unhindered 360° Himalayan panorama.",
   },
+  {
+    id: "tashi-namgyal-washrooms",
+    index: "04",
+    title: "Tashi Namgyal Academy Washroom Renovation",
+    location: "Gangtok, Sikkim",
+    year: "2025 – 2026",
+    status: "COMPLETE",
+    statusVariant: "wood",
+    area: "1,657 sq ft (total)",
+    image: "/projects/tashi/tashi-6.jpg",
+    gallery: [
+      "/projects/tashi/tashi-6.jpg",
+      "/projects/tashi/tashi-7.jpg",
+      "/projects/tashi/tashi-8.jpg",
+      "/projects/tashi/tashi-9.jpg",
+      "/projects/tashi/tashi-17.jpg",
+      "/projects/tashi/tashi-20.jpg",
+      "/projects/tashi/tashi-26.jpg",
+    ],
+    description:
+      "Three-phase washroom renovation at Tashi Namgyal Academy — Sikkim's storied boarding institution. Material-led detailing, durable finishes and warm boarding-school dignity restored across junior and senior wings.",
+    phases: [
+      {
+        label: "Junior Boys",
+        area: "637.13 sq ft",
+        status: "Complete",
+        period: "Jan 2026 – Feb 2026",
+      },
+      {
+        label: "Junior Girls",
+        area: "672.61 sq ft",
+        status: "Complete",
+        period: "Dec 2025 – Feb 2026",
+      },
+      {
+        label: "Senior Boys",
+        area: "347.54 sq ft",
+        status: "Complete",
+        period: "Nov 2025 – Jan 2026",
+      },
+    ],
+  },
 ];
 
 export const TEAM_LEADS = {
