@@ -122,9 +122,9 @@ export const SERVICES = [
 
 export const PROJECTS = [
   {
-    id: "himalayan-heights",
+    id: "golden-heights",
     index: "01",
-    title: "The Himalayan Heights",
+    title: "Golden Heights",
     location: "Namchi, Sikkim",
     year: "2024",
     status: "SOLD OUT",
@@ -143,29 +143,8 @@ export const PROJECTS = [
       "Community living integrated with traditional Sikkimese architecture. Local stone and sustainable timber. Sold out within three months of launch.",
   },
   {
-    id: "skyline-residency",
-    index: "02",
-    title: "The Skyline Residency",
-    location: "Gangtok, Sikkim",
-    year: "2025",
-    status: "FOR SALE",
-    statusVariant: "moss",
-    area: "2,400 sq ft",
-    image:
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80&auto=format&fit=crop",
-    gallery: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600573472556-e636c2acda88?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600566753086-00f18fe6ba68?w=1600&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Seismic Zone IV compliant structure with a heated indoor swimming pool, smart home automation, and a panoramic view of Kanchenjunga.",
-  },
-  {
     id: "sky-gangtok",
-    index: "03",
+    index: "02",
     title: "Sky Gangtok",
     location: "Gangtok, Sikkim",
     year: "2026",
@@ -183,6 +162,27 @@ export const PROJECTS = [
     ],
     description:
       "A steel-frame exoskeleton inspired by Sikkim's pine forests. The tallest residential structure in the region — with an unhindered 360° Himalayan panorama.",
+  },
+  {
+    id: "tnsa-admin-block",
+    index: "03",
+    title: "Tashi Namgyal Academy Admin Block",
+    location: "Gangtok, Sikkim",
+    year: "2021",
+    status: "COMPLETE",
+    statusVariant: "wood",
+    area: "approx 20,000 sq ft",
+    image:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/yve47y2g_IMG_1970.JPG",
+    gallery: [
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/yve47y2g_IMG_1970.JPG",
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/xlechuiz_IMG_1972.JPG",
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/snsvmafq_IMG_1975.JPG",
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/545lhew8_IMG_1976.JPG",
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/rf7nyixg_IMG_1979.JPG",
+    ],
+    description:
+      "Purpose-built Admin Block for Tashi Namgyal Academy — relocated from the Senior School into a dedicated home for the institution's administration.",
   },
   {
     id: "tashi-namgyal-washrooms",
@@ -204,24 +204,21 @@ export const PROJECTS = [
       "/projects/tashi/tashi-26.jpg",
     ],
     description:
-      "Three-phase washroom renovation at Tashi Namgyal Academy — Sikkim's storied boarding institution. Material-led detailing, durable finishes and warm boarding-school dignity restored across junior and senior wings.",
+      "Three-phase washroom renovation at Tashi Namgyal Academy — material-led detail, restored dignity.",
     phases: [
       {
         label: "Junior Boys",
         area: "637.13 sq ft",
-        status: "Complete",
         period: "Jan 2026 – Feb 2026",
       },
       {
         label: "Junior Girls",
         area: "672.61 sq ft",
-        status: "Complete",
         period: "Dec 2025 – Feb 2026",
       },
       {
         label: "Senior Boys",
         area: "347.54 sq ft",
-        status: "Complete",
         period: "Nov 2025 – Jan 2026",
       },
     ],

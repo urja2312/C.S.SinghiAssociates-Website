@@ -253,7 +253,7 @@ export default function Projects() {
                             {p.label}
                           </div>
                           <div className="project-drawer__phase-meta">
-                            {p.area} · {p.status}
+                            {p.area}
                           </div>
                           <div className="project-drawer__phase-period">
                             {p.period}
