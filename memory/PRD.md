@@ -17,14 +17,14 @@ Build a $10,000-grade single-page architectural portfolio site for C.S. Singhi &
 - Space Grotesk + Space Mono + EB Garamond (italic accent) via Google Fonts
 
 ## Recent updates (Feb 2026 — current fork)
-- **Hero (Feb 25)** — Replaced golden blueprint with new multi-blueprint composition (axonometric + elevations + floor plans). Background switched to deep navy/near-black to match About top. Blueprint hue softened from saturated orange → beige/champagne. Title-block readability hardened with a radial dark wash + brighter, bolder lede with subtle text-shadow.
-- **About (Feb 24–25)** — Featured Timeline exhibit (~35% larger, sequential GSAP reveal), Purpose card aligned to paragraph height, atmospheric navy→ivory transition zone (~28vh) handing off into Practice.
-- **Practice (Feb 24)** — PRACTICE eyebrow promoted to larger gold mono label with leading rule. Card stagger animation reworked (no more y-drift on cards 02/03/etc).
-- **Projects (Feb 24)** — Pinned horizontal scrub removed. All projects side-by-side at editorial size with paper-stock arrow buttons on both edges (auto-disable at start/end). Native touch swipe preserved.
-- **Team (Feb 25)** — Two featured cards with "Ar." prefix and enlarged 280px portraits. Architectural blueprint line-art added to the right of the featured cards (luminance-masked, warm champagne tint). 
-- **Team content (Feb 25)** — "Sakshi" corrected to "Saakshi"; Saakshi role line simplified to "Studio Lead". Sections renamed: "Architects & Engineers" → **Technical Team** (7 members: AS, YM, CB, RB, JT, plus new Dawa Bhutia & Deepak Tamang; Tenzing Palkye Bhutia removed). "Support Team" → **Non-Technical Team** (5 members: PS, SU, Aruna Chettri now Manager, Pushpa Nirola now Assistant Manager, new Sushila Chettri Receptionist). Both grids switched to flex-wrap + justify-content: center so any orphan card in the last row is centered. Verified by testing_agent_v3 — 100% pass (iteration_2.json).
-- **Contact (Feb 24)** — Send-message form removed entirely. Headline "Let's build something / that lasts." centered on two lines; lede centered; only direct phone/email/WhatsApp rows.
-- **Footer (Feb 24)** — Logo enlarged (clamp 110–140px). "Designed with love" / "By Arushi Singhi & Urja Singhi" split across two lines. Cities reduced to "Gangtok".
+- **Projects (Feb 26)** — Renamed "The Himalayan Heights" → **Golden Heights**. Removed "The Skyline Residency". Added two new real projects: **Tashi Namgyal Academy Admin Block** (2021, ~20,000 sq ft, 5 photos) and **Tashi Namgyal Academy Washroom Renovation** (3-phase, 7 photos). Renumbered to 01–04. Updated **Sky Gangtok** with real rendering + floor plans + parking gallery, 90,000+ sq ft, 2021–Present timeline, 2-line description.
+- **Project drawer (Feb 26)** — Converted full-bleed panel to **centered modal popup** (max 1320×695, rounded 22px, backdrop blur, click-outside-to-close). Columns now stretch to equal height (`justify-content: space-between` on left + `flex: 1` gallery). Added support for `phases: [...]` (multi-phase projects render staggered phase blocks instead of Area/Year). 100% pass on testing_agent_v3 (iteration_3.json).
+- **Hero (Feb 25)** — Replaced golden blueprint with new multi-blueprint composition. Background switched to near-black (#07101c) matching About top. Blueprint hue softened to beige/champagne. Title-block readability hardened with radial dark wash.
+- **About (Feb 24)** — Featured Timeline exhibit, Purpose card aligned to paragraph height, navy→ivory transition zone (~28vh) handing off into Practice.
+- **Practice/Projects gallery (Feb 24)** — PRACTICE eyebrow promoted to larger gold mono label. Manual arrow-driven horizontal gallery with snap scroll.
+- **Team (Feb 25–26)** — "Ar." prefix + 280px portraits + architectural blueprint line-art beside featured cards. Roster updated to **Technical Team** (7 members) and **Non-Technical Team** (5 members, all with correct titles). Flex-wrap centering. Verified 100% pass on testing_agent_v3 (iteration_2.json).
+- **Contact (Feb 24)** — Form removed. Two-line headline, centered lede, direct phone/email/WhatsApp rows.
+- **Footer (Feb 24)** — Larger logo, split tagline, city reduced to Gangtok.
 - **Nav (Feb 24)** — Removed standalone "Contact" link, kept only the Contact CTA button.
 
 ## Backend endpoints
