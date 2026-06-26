@@ -2300,29 +2300,30 @@ button {
     margin-top: var(--space-md);
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
-    max-width: 1200px;
+    gap: 1.5rem;
+    max-width: 1320px;
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
 }
 
+/* Technical Team — 4 cards per row, portrait, fills section width */
 .team__grid .team-card {
-    flex: 0 1 calc((100% - 2.5rem) / 3);
+    flex: 0 1 calc((100% - 4.5rem) / 4);
     min-width: 200px;
-    max-width: 300px;
+    max-width: 290px;
 }
 
-/* Non-Technical Team — 5 members, 5 across on wide, wrap+center on narrow */
+/* Non-Technical Team — 5 portrait cards, same wide canvas */
 .team__grid--support {
-    max-width: 1280px;
+    max-width: 1320px;
     margin-top: 0;
 }
 
 .team__grid--support .team-card {
-    flex: 0 1 calc((100% - 5rem) / 5);
-    min-width: 220px;
-    max-width: 320px;
+    flex: 0 1 calc((100% - 6rem) / 5);
+    min-width: 200px;
+    max-width: 240px;
 }
 
 .team-card {
@@ -2330,7 +2331,7 @@ button {
 }
 
 .team-card__portrait {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     background-size: cover;
     background-position: center;
     background-color: var(--stone);
@@ -2342,7 +2343,7 @@ button {
     align-items: center;
     justify-content: center;
     font-family: "EB Garamond", "Cormorant Garamond", serif;
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-style: italic;
     color: rgba(249, 246, 240, 0.7);
     background-image: linear-gradient(160deg, var(--stone) 0%, var(--wood-dark) 100%);
