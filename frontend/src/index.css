@@ -1513,6 +1513,7 @@ button {
     display: flex;
     align-items: stretch;
     gap: 0;
+    padding: 0 clamp(2rem, 6vw, 7rem);
 }
 
 .projects__viewport {
@@ -1535,7 +1536,7 @@ button {
     display: flex;
     align-items: stretch;
     gap: 2rem;
-    padding: 0 clamp(1.25rem, 4vw, 4rem);
+    padding: 0 1.25rem;
     width: max-content;
 }
 
@@ -1580,11 +1581,11 @@ button {
 }
 
 .projects__arrow--left {
-    left: clamp(0.5rem, 2vw, 1.75rem);
+    left: clamp(0.75rem, 2.5vw, 2.25rem);
 }
 
 .projects__arrow--right {
-    right: clamp(0.5rem, 2vw, 1.75rem);
+    right: clamp(0.75rem, 2.5vw, 2.25rem);
 }
 
 .project-card {
