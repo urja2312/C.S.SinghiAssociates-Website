@@ -3740,3 +3740,103 @@ button {
     transform: translateY(-50%);
 }
 
+
+
+/* ============================================================
+   CONTACT — Architectural blueprint background (no upscaling)
+   ============================================================ */
+.contact--photo-bg {
+    position: relative;
+    background: #07101c;
+    color: #f3eede;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Image kept at native size & centered so it never pixelates on huge screens.
+   Uses background-size: contain (responsive only on small viewports) capped
+   by max-width via the background-size value. */
+.contact__bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: var(--contact-bg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto min(85%, 720px);
+    background-color: #07101c;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.contact__bg-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse 55% 45% at 50% 50%,
+            rgba(7, 16, 28, 0.55) 0%,
+            rgba(7, 16, 28, 0.7) 55%,
+            rgba(7, 16, 28, 0.9) 100%
+        );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.contact--photo-bg .section__inner {
+    position: relative;
+    z-index: 2;
+}
+
+.contact--photo-bg .kicker {
+    color: rgba(216, 178, 122, 0.9);
+}
+
+.contact--photo-bg .contact__headline {
+    color: #f7f1de;
+    text-shadow: 0 2px 24px rgba(7, 16, 28, 0.75);
+}
+
+.contact--photo-bg .contact__headline em {
+    color: var(--wood);
+}
+
+.contact--photo-bg .contact__lede {
+    color: rgba(243, 238, 222, 0.92);
+    text-shadow: 0 1px 14px rgba(7, 16, 28, 0.75);
+}
+
+.contact--photo-bg .contact__row {
+    border-bottom: 1px solid rgba(216, 178, 122, 0.3);
+}
+
+.contact--photo-bg .contact__row-label {
+    color: rgba(216, 178, 122, 0.85);
+}
+
+.contact--photo-bg .contact__row-value {
+    color: #f3eede;
+}
+
+.contact--photo-bg .contact__row:hover .contact__row-value {
+    color: var(--wood);
+}
+
+.contact--photo-bg .footer {
+    position: relative;
+    z-index: 2;
+    background: rgba(7, 16, 28, 0.62);
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(216, 178, 122, 0.22);
+    color: rgba(243, 238, 222, 0.8);
+    margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.contact--photo-bg .footer__brand,
+.contact--photo-bg .footer__col > div {
+    color: rgba(243, 238, 222, 0.85);
+}
+
+.contact--photo-bg .footer__love {
+    color: var(--wood);
+}
