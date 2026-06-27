@@ -3743,41 +3743,53 @@ button {
 
 
 /* ============================================================
-   CONTACT — Architectural blueprint background (no upscaling)
+   CONTACT — Architectural blueprint backdrop on warm ivory canvas
    ============================================================ */
 .contact--photo-bg {
     position: relative;
-    background: #07101c;
-    color: #f3eede;
     overflow: hidden;
     isolation: isolate;
 }
 
-/* Image kept at native size & centered so it never pixelates on huge screens.
-   Uses background-size: contain (responsive only on small viewports) capped
-   by max-width via the background-size value. */
+/* Use the image as a LUMINANCE MASK so only the white + gold linework
+   shows through — black background of the source is discarded. The
+   element is filled with a soft, warm ink tone that reads beautifully
+   on the ivory canvas without pixelating at any screen size. */
 .contact__bg-image {
     position: absolute;
     inset: 0;
-    background-image: var(--contact-bg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: auto min(85%, 720px);
-    background-color: #07101c;
+    background:
+        linear-gradient(
+            155deg,
+            rgba(58, 54, 50, 0.85) 0%,
+            rgba(168, 142, 110, 0.95) 45%,
+            rgba(193, 147, 90, 0.95) 100%
+        );
+    -webkit-mask-image: var(--contact-bg);
+    mask-image: var(--contact-bg);
+    -webkit-mask-mode: luminance;
+    mask-mode: luminance;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-size: auto min(80%, 720px);
+    mask-size: auto min(80%, 720px);
     z-index: 0;
     pointer-events: none;
-    opacity: 0.85;
+    opacity: 0.42;
 }
 
+/* Soft vignette so the centered text sits on a slightly calmer canvas */
 .contact__bg-overlay {
     position: absolute;
     inset: 0;
     background:
         radial-gradient(
-            ellipse 55% 45% at 50% 50%,
-            rgba(7, 16, 28, 0.55) 0%,
-            rgba(7, 16, 28, 0.7) 55%,
-            rgba(7, 16, 28, 0.9) 100%
+            ellipse 55% 50% at 50% 38%,
+            rgba(244, 241, 234, 0.78) 0%,
+            rgba(244, 241, 234, 0.45) 45%,
+            transparent 80%
         );
     z-index: 1;
     pointer-events: none;
@@ -3788,55 +3800,11 @@ button {
     z-index: 2;
 }
 
-.contact--photo-bg .kicker {
-    color: rgba(216, 178, 122, 0.9);
-}
-
+/* Typography stays dark on light, with subtle ivory glow for crispness */
 .contact--photo-bg .contact__headline {
-    color: #f7f1de;
-    text-shadow: 0 2px 24px rgba(7, 16, 28, 0.75);
-}
-
-.contact--photo-bg .contact__headline em {
-    color: var(--wood);
+    text-shadow: 0 1px 14px rgba(244, 241, 234, 0.65);
 }
 
 .contact--photo-bg .contact__lede {
-    color: rgba(243, 238, 222, 0.92);
-    text-shadow: 0 1px 14px rgba(7, 16, 28, 0.75);
-}
-
-.contact--photo-bg .contact__row {
-    border-bottom: 1px solid rgba(216, 178, 122, 0.3);
-}
-
-.contact--photo-bg .contact__row-label {
-    color: rgba(216, 178, 122, 0.85);
-}
-
-.contact--photo-bg .contact__row-value {
-    color: #f3eede;
-}
-
-.contact--photo-bg .contact__row:hover .contact__row-value {
-    color: var(--wood);
-}
-
-.contact--photo-bg .footer {
-    position: relative;
-    z-index: 2;
-    background: rgba(7, 16, 28, 0.62);
-    backdrop-filter: blur(4px);
-    border-top: 1px solid rgba(216, 178, 122, 0.22);
-    color: rgba(243, 238, 222, 0.8);
-    margin-top: clamp(3rem, 6vw, 5rem);
-}
-
-.contact--photo-bg .footer__brand,
-.contact--photo-bg .footer__col > div {
-    color: rgba(243, 238, 222, 0.85);
-}
-
-.contact--photo-bg .footer__love {
-    color: var(--wood);
+    text-shadow: 0 1px 10px rgba(244, 241, 234, 0.55);
 }
