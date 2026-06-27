@@ -262,7 +262,13 @@ export const TEAM_GRID = [
     photo:
       "https://customer-assets.emergentagent.com/job_himalayan/artifacts/m1a20q13_Ar.%20Rikzum%20Chettri.jpg",
   },
-  { name: "Chelsea Palmo Bhutia", role: "Architect", initials: "CB" },
+  {
+    name: "Chelsea Palmo Bhutia",
+    role: "Architect",
+    initials: "CB",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/9i8hmnwp_Chelsea.png",
+  },
   {
     name: "Rikzum Rinchen Bhutia",
     role: "Architect",
@@ -271,13 +277,31 @@ export const TEAM_GRID = [
       "https://customer-assets.emergentagent.com/job_himalayan/artifacts/d9z6daha_Rikzum.jpg",
   },
   { name: "Jessica Tiruwa", role: "Civil Engineer", initials: "JT" },
-  { name: "Dawa Bhutia", role: "Civil Draftsman", initials: "DB" },
+  {
+    name: "Dawa Bhutia",
+    role: "Civil Draftsman",
+    initials: "DB",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/igd9drqo_Dawa%20Bhutia.png",
+  },
   { name: "Deepak Tamang", role: "Civil Engineer (Diploma)", initials: "DT" },
 ];
 
 export const SUPPORT_TEAM = [
-  { name: "Prakash Subba", role: "Site Inspector", initials: "PS" },
-  { name: "Shalini Upadhay", role: "Accountant", initials: "SU" },
+  {
+    name: "Prakash Subba",
+    role: "Site Inspector",
+    initials: "PS",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/oeli9553_Prakash.png",
+  },
+  {
+    name: "Shalini Upadhay",
+    role: "Accountant",
+    initials: "SU",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/it12dn11_Shalini.png",
+  },
   {
     name: "Aruna Chettri",
     role: "Manager",
@@ -286,7 +310,13 @@ export const SUPPORT_TEAM = [
       "https://customer-assets.emergentagent.com/job_himalayan/artifacts/5n712pzl_Aruna%20Chettri%20.png",
   },
   { name: "Pushpa Nirola", role: "Assistant Manager", initials: "PN" },
-  { name: "Sushila Chettri", role: "Receptionist", initials: "SC" },
+  {
+    name: "Sushila Chettri",
+    role: "Receptionist",
+    initials: "SC",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/syku3d2h_Sushila.png",
+  },
 ];
 
 export const JOBS = [
