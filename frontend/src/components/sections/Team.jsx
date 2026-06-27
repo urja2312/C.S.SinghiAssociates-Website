@@ -94,8 +94,17 @@ export default function Team() {
 
           {/* Founding Principal feature */}
           <div className="team__feature" data-testid="team-principal">
-            <div className="team__portrait team__portrait--placeholder">
-              {TEAM_LEADS.principal.initials}
+            <div
+              className={`team__portrait ${
+                TEAM_LEADS.principal.photo ? "team__portrait--photo" : "team__portrait--placeholder"
+              }`}
+              style={
+                TEAM_LEADS.principal.photo
+                  ? { backgroundImage: `url("${TEAM_LEADS.principal.photo}")` }
+                  : undefined
+              }
+            >
+              {TEAM_LEADS.principal.photo ? null : TEAM_LEADS.principal.initials}
             </div>
             <div className="team__feature-body">
               <div className="team__feature-eyebrow">

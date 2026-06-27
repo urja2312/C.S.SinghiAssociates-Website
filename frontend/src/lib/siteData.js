@@ -232,6 +232,8 @@ export const TEAM_LEADS = {
     name: "Ar. Chhatra S. Singhi",
     role: "Proprietor · Architect",
     initials: "CS",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/8d6c868i_Chhatra.png",
     quote:
       "True architecture is measured not just in structures, but in the ethical foundation upon which they are built.",
   },
@@ -309,7 +311,7 @@ export const SUPPORT_TEAM = [
     photo:
       "https://customer-assets.emergentagent.com/job_himalayan/artifacts/5n712pzl_Aruna%20Chettri%20.png",
   },
-  { name: "Pushpa Nirola", role: "Assistant Manager", initials: "PN" },
+  { name: "Puspa Nirola", role: "Assistant Manager", initials: "PN", photo: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/2omozoc7_Pushpa.png" },
   {
     name: "Sushila Chettri",
     role: "Receptionist",
@@ -370,7 +372,7 @@ export const JOBS = [
 export const CONTACT = {
   address: "Lal Market Rd, Gangtok, Sikkim 737101, India",
   phone: "+91 98765 43210",
-  email: "info@cssinghi.com",
+  email: "support@cssinghi.com",
   whatsapp: "+91 98765 43210",
 };
 
