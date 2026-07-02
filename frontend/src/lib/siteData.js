@@ -262,7 +262,7 @@ export const TEAM_GRID = [
     role: "Architect",
     initials: "YM",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/m1a20q13_Ar.%20Rikzum%20Chettri.jpg",
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/rbygv805_Yorika%20.png",
   },
   {
     name: "Chelsea Palmo Bhutia",
@@ -278,7 +278,13 @@ export const TEAM_GRID = [
     photo:
       "https://customer-assets.emergentagent.com/job_himalayan/artifacts/d9z6daha_Rikzum.jpg",
   },
-  { name: "Jessica Tiruwa", role: "Civil Engineer", initials: "JT" },
+  {
+    name: "Jessica Tiruwa",
+    role: "Civil Engineer",
+    initials: "JT",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/ewoa0gzc_Jessica.png",
+  },
   {
     name: "Dawa Bhutia",
     role: "Civil Draftsman",
@@ -286,7 +292,13 @@ export const TEAM_GRID = [
     photo:
       "https://customer-assets.emergentagent.com/job_himalayan/artifacts/igd9drqo_Dawa%20Bhutia.png",
   },
-  { name: "Deepak Tamang", role: "Civil Engineer (Diploma)", initials: "DT" },
+  {
+    name: "Deepak Tamang",
+    role: "Civil Engineer (Diploma)",
+    initials: "DT",
+    photo:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/2sr0tdgy_Deepak%20Tamang.png",
+  },
 ];
 
 export const SUPPORT_TEAM = [
@@ -317,7 +329,7 @@ export const SUPPORT_TEAM = [
     role: "Receptionist",
     initials: "SC",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/syku3d2h_Sushila.png",
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/em6p2wwc_Sushila%20.png",
   },
 ];
 
