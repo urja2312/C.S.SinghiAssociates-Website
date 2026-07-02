@@ -102,12 +102,14 @@ export default function About() {
               <header className="card__title">Our Purpose</header>
               <span className="purpose__mark" aria-hidden="true">&ldquo;</span>
               <blockquote className="purpose__quote">
-                True architecture is measured not just in structures, but in the
-                ethical foundation upon which they are built.
+                We create architecture that balances beauty with purpose. Every
+                project is guided by a commitment to thoughtful design,
+                enduring quality, and spaces that serve both people and place
+                for generations to come.
               </blockquote>
               <div className="purpose__attr">
                 <span className="purpose__rule" />
-                Chhatra S. Singhi · Founding Principal
+                C.S. Singhi &amp; Associates
               </div>
             </article>
           </div>

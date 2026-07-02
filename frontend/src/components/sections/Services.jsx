@@ -76,16 +76,6 @@ export default function Services() {
                 </div>
                 <div>
                   <div className="service-card__rule" />
-                  <div className="service-card__arrow">
-                    Learn more
-                    <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-                      <path
-                        d="M1 5h14m0 0l-4-4m4 4l-4 4"
-                        stroke="currentColor"
-                        strokeWidth="1.4"
-                      />
-                    </svg>
-                  </div>
                 </div>
               </div>
             ))}
