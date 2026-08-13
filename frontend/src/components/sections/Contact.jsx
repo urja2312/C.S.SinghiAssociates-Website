@@ -69,10 +69,18 @@ export default function Contact() {
             </p>
 
             <div className="contact__info" data-testid="contact-info">
-              <div className="contact__row">
+              <a
+                href="https://maps.app.goo.gl/rCtE9qMCK9Zxf5xKA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact__row"
+                data-testid="contact-studio"
+              >
                 <div className="contact__row-label">Studio</div>
-                <div className="contact__row-value">{CONTACT.address}</div>
-              </div>
+                <div className="contact__row-value">
+                  {CONTACT.address} <span aria-hidden="true">↗</span>
+                </div>
+              </a>
               <a
                 href={`tel:${CONTACT.phone.replace(/\s+/g, "")}`}
                 className="contact__row"

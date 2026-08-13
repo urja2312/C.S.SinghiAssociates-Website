@@ -123,29 +123,8 @@ export const SERVICES = [
 
 export const PROJECTS = [
   {
-    id: "golden-heights",
-    index: "01",
-    title: "Golden Heights",
-    location: "Namchi, Sikkim",
-    year: "2024",
-    status: "SOLD OUT",
-    statusVariant: "wood",
-    area: "1,800 sq ft",
-    image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80&auto=format&fit=crop",
-    gallery: [
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80&auto=format&fit=crop",
-    ],
-    description:
-      "Community living integrated with traditional Sikkimese architecture. Local stone and sustainable timber. Sold out within three months of launch.",
-  },
-  {
     id: "sky-gangtok",
-    index: "02",
+    index: "01",
     title: "Sky Gangtok",
     location: "Gangtok, Sikkim",
     year: "2021 – Present",
@@ -166,7 +145,7 @@ export const PROJECTS = [
   },
   {
     id: "tnsa-admin-block",
-    index: "03",
+    index: "02",
     title: "Tashi Namgyal Academy Admin Block",
     location: "Gangtok, Sikkim",
     year: "2021",
@@ -187,7 +166,7 @@ export const PROJECTS = [
   },
   {
     id: "tashi-namgyal-washrooms",
-    index: "04",
+    index: "03",
     title: "Tashi Namgyal Academy Washroom Renovation",
     location: "Gangtok, Sikkim",
     year: "2025 – 2026",
@@ -223,6 +202,45 @@ export const PROJECTS = [
         period: "Nov 2025 – Jan 2026",
       },
     ],
+  },
+  {
+    id: "hotel-gangtok-drift",
+    index: "04",
+    title: "Hotel Gangtok Drift",
+    location: "Gangtok, Sikkim",
+    year: "TBD",
+    status: "COMPLETE",
+    statusVariant: "wood",
+    area: "TBD",
+    image:
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/8bven2jl_WhatsApp%20Image%202026-07-30%20at%2005.46.34.jpeg",
+    gallery: [
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/8bven2jl_WhatsApp%20Image%202026-07-30%20at%2005.46.34.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/6pfw7dt6_WhatsApp%20Image%202026-07-30%20at%2005.46.29.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/2ntkn64c_WhatsApp%20Image%202026-07-30%20at%2005.46.36%20%281%29.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/supltz99_WhatsApp%20Image%202026-07-30%20at%2005.46.37%20%281%29.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/biajipdd_WhatsApp%20Image%202026-07-30%20at%2005.46.37.jpeg",
+    ],
+    description:
+      "A boutique hotel + restro on Gangtok's high street — warm lobby detailing, contemporary rooms and a quiet urban rhythm.",
+  },
+  {
+    id: "golden-heights",
+    index: "05",
+    title: "Golden Heights",
+    location: "Gangtok, Sikkim",
+    year: "2024",
+    status: "COMPLETE",
+    statusVariant: "wood",
+    area: "Hotel + Retail",
+    image:
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/k909uv7w_image.png",
+    gallery: [
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/k909uv7w_image.png",
+      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/kca1uij0_image.png",
+    ],
+    description:
+      "Hotel Golden Heights — a mixed-use façade on Gangtok's high street, animated by porthole windows and layered chhajjas.",
   },
 ];
 

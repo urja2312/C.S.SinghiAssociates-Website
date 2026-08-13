@@ -116,9 +116,6 @@ export default function Team() {
               <div className="team__feature-role">
                 {TEAM_LEADS.principal.role} · COA · IIA Certified
               </div>
-              <div className="team__feature-quote">
-                &ldquo;{TEAM_LEADS.principal.quote}&rdquo;
-              </div>
             </div>
           </div>
 
@@ -148,9 +145,6 @@ export default function Team() {
               </div>
               <div className="team__feature-role">
                 {TEAM_LEADS.architect.role}
-              </div>
-              <div className="team__feature-quote">
-                &ldquo;{TEAM_LEADS.architect.quote}&rdquo;
               </div>
             </div>
           </div>
