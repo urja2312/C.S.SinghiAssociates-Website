@@ -225,8 +225,29 @@ export const PROJECTS = [
       "A boutique hotel + restro on Gangtok's high street — warm lobby detailing, contemporary rooms and a quiet urban rhythm.",
   },
   {
-    id: "golden-heights",
+    id: "moe-beautiful",
     index: "05",
+    title: "Mo-e Beautiful",
+    location: "M.G. Marg, Gangtok",
+    year: "TBD",
+    status: "COMPLETE",
+    statusVariant: "wood",
+    area: "TBD",
+    image:
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/jlb6ha1a_WhatsApp%20Image%202026-07-30%20at%2005.46.53.jpeg",
+    gallery: [
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/jlb6ha1a_WhatsApp%20Image%202026-07-30%20at%2005.46.53.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/wlcvlty0_WhatsApp%20Image%202026-07-30%20at%2005.46.56.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/9vobd1lo_WhatsApp%20Image%202026-07-30%20at%2005.46.51.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/rnzskhoj_WhatsApp%20Image%202026-07-30%20at%2005.46.49.jpeg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/y6fou013_WhatsApp%20Image%202026-07-30%20at%2005.46.48.jpeg",
+    ],
+    description:
+      "A cosmetics showroom on M.G. Marg — rose-gold archways, glass-lit shelving and a retail experience shaped for beauty.",
+  },
+  {
+    id: "golden-heights",
+    index: "06",
     title: "Golden Heights",
     location: "Gangtok, Sikkim",
     year: "2024",
