@@ -402,7 +402,7 @@ export const JOBS = [
 export const CONTACT = {
   address: "Lal Market Rd, Gangtok, Sikkim 737101, India",
   phone: "+91 98765 43210",
-  email: "support@cssinghi.com",
+  email: "office@cssinghi.com",
   whatsapp: "+91 98765 43210",
 };
 
