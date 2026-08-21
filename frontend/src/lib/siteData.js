@@ -208,10 +208,10 @@ export const PROJECTS = [
     index: "04",
     title: "Hotel Gangtok Drift",
     location: "Gangtok, Sikkim",
-    year: "TBD",
+    year: "2014",
     status: "COMPLETE",
     statusVariant: "wood",
-    area: "TBD",
+    area: "12,000 sq ft",
     image:
       "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/8bven2jl_WhatsApp%20Image%202026-07-30%20at%2005.46.34.jpeg",
     gallery: [
@@ -229,10 +229,10 @@ export const PROJECTS = [
     index: "05",
     title: "Mo-e Beautiful",
     location: "M.G. Marg, Gangtok",
-    year: "TBD",
+    year: "2025",
     status: "COMPLETE",
     statusVariant: "wood",
-    area: "TBD",
+    area: "1,900 sq ft",
     image:
       "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/jlb6ha1a_WhatsApp%20Image%202026-07-30%20at%2005.46.53.jpeg",
     gallery: [
@@ -246,8 +246,29 @@ export const PROJECTS = [
       "A cosmetics showroom on M.G. Marg — rose-gold archways, glass-lit shelving and a retail experience shaped for beauty.",
   },
   {
-    id: "golden-heights",
+    id: "ramesh-jewellers",
     index: "06",
+    title: "Ramesh Jewellers",
+    location: "Tibet Rd, Gangtok",
+    year: "2026",
+    status: "IN PROGRESS",
+    statusVariant: "construction",
+    area: "TBD",
+    image:
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/ulpjx5nj_PHOTO-2026-08-21-15-52-57.jpg",
+    gallery: [
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/ulpjx5nj_PHOTO-2026-08-21-15-52-57.jpg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/cjpa8dvd_PHOTO-2026-08-21-15-52-57.jpg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/52fyww2y_PHOTO-2026-08-21-15-52-57.jpg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/pnnjitz1_PHOTO-2026-08-21-15-52-56.jpg",
+      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/xjuxlhqb_PHOTO-2026-08-21-15-52-58.jpg",
+    ],
+    description:
+      "Interior design for a jewellery store on Tibet Road — considered lighting, layered display and a quietly refined retail atmosphere.",
+  },
+  {
+    id: "golden-heights",
+    index: "07",
     title: "Golden Heights",
     location: "Gangtok, Sikkim",
     year: "2024",
@@ -363,13 +384,6 @@ export const SUPPORT_TEAM = [
       "https://customer-assets.emergentagent.com/job_himalayan/artifacts/5n712pzl_Aruna%20Chettri%20.png",
   },
   { name: "Puspa Nirola", role: "Assistant Manager", initials: "PN", photo: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/2omozoc7_Pushpa.png" },
-  {
-    name: "Sushila Chettri",
-    role: "Receptionist",
-    initials: "SC",
-    photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/em6p2wwc_Sushila%20.png",
-  },
 ];
 
 export const JOBS = [
