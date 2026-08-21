@@ -253,7 +253,7 @@ export const PROJECTS = [
     year: "2026",
     status: "IN PROGRESS",
     statusVariant: "construction",
-    area: "TBD",
+    area: "230 sq ft",
     image:
       "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/ulpjx5nj_PHOTO-2026-08-21-15-52-57.jpg",
     gallery: [
