@@ -4,11 +4,11 @@
    ============================================================ */
 
 export const ASSETS = {
-  hero: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/q8fnvl8v_image.png",
-  logo: "https://customer-assets.emergentagent.com/job_6eb074fe-1740-4003-b10a-e49bd9643602/artifacts/17tvwskj_logo.png",
-  logoIcon: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/ndakjvqy_image.png",
-  logoFull: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/jl0u46ay_image.png",
-  contactBg: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/lwg6479m_image.png",
+  hero: "/assets/q8fnvl8v.png",
+  logo: "/assets/17tvwskj.png",
+  logoIcon: "/assets/ndakjvqy.png",
+  logoFull: "/assets/jl0u46ay.png",
+  contactBg: "/assets/lwg6479m.png",
 };
 
 /* CONTENT: Architectural photos used for collage + project cards.
@@ -132,13 +132,13 @@ export const PROJECTS = [
     statusVariant: "construction",
     area: "90,000+ sq ft",
     image:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/34qf8exv_Screenshot%202026-06-26%20at%204.14.45%E2%80%AFPM.png",
+      "/assets/34qf8exv.png",
     gallery: [
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/34qf8exv_Screenshot%202026-06-26%20at%204.14.45%E2%80%AFPM.png",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/t9rjnza1_Screenshot%202026-06-26%20at%204.25.13%E2%80%AFPM.png",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/55dfdxz8_Screenshot%202026-06-26%20at%204.25.59%E2%80%AFPM.png",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/6iw8e7d2_Screenshot%202026-06-26%20at%204.15.36%E2%80%AFPM.png",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/nf6083ar_Screenshot%202026-06-26%20at%204.15.16%E2%80%AFPM.png",
+      "/assets/34qf8exv.png",
+      "/assets/t9rjnza1.png",
+      "/assets/55dfdxz8.png",
+      "/assets/6iw8e7d2.png",
+      "/assets/nf6083ar.png",
     ],
     description:
       "Gangtok's first premium high-rise — residential with attached commercial space and unparalleled amenities.",
@@ -153,13 +153,13 @@ export const PROJECTS = [
     statusVariant: "wood",
     area: "approx 20,000 sq ft",
     image:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/yve47y2g_IMG_1970.JPG",
+      "/assets/yve47y2g.jpg",
     gallery: [
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/yve47y2g_IMG_1970.JPG",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/xlechuiz_IMG_1972.JPG",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/snsvmafq_IMG_1975.JPG",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/545lhew8_IMG_1976.JPG",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/rf7nyixg_IMG_1979.JPG",
+      "/assets/yve47y2g.jpg",
+      "/assets/xlechuiz.jpg",
+      "/assets/snsvmafq.jpg",
+      "/assets/545lhew8.jpg",
+      "/assets/rf7nyixg.jpg",
     ],
     description:
       "Purpose-built Admin Block for Tashi Namgyal Academy — relocated from the Senior School into a dedicated home for the institution's administration.",
@@ -213,13 +213,13 @@ export const PROJECTS = [
     statusVariant: "wood",
     area: "12,000 sq ft",
     image:
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/8bven2jl_WhatsApp%20Image%202026-07-30%20at%2005.46.34.jpeg",
+      "/assets/8bven2jl.jpeg",
     gallery: [
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/8bven2jl_WhatsApp%20Image%202026-07-30%20at%2005.46.34.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/6pfw7dt6_WhatsApp%20Image%202026-07-30%20at%2005.46.29.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/2ntkn64c_WhatsApp%20Image%202026-07-30%20at%2005.46.36%20%281%29.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/supltz99_WhatsApp%20Image%202026-07-30%20at%2005.46.37%20%281%29.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/biajipdd_WhatsApp%20Image%202026-07-30%20at%2005.46.37.jpeg",
+      "/assets/8bven2jl.jpeg",
+      "/assets/6pfw7dt6.jpeg",
+      "/assets/2ntkn64c.jpeg",
+      "/assets/supltz99.jpeg",
+      "/assets/biajipdd.jpeg",
     ],
     description:
       "A boutique hotel + restro on Gangtok's high street — warm lobby detailing, contemporary rooms and a quiet urban rhythm.",
@@ -234,13 +234,13 @@ export const PROJECTS = [
     statusVariant: "wood",
     area: "1,900 sq ft",
     image:
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/jlb6ha1a_WhatsApp%20Image%202026-07-30%20at%2005.46.53.jpeg",
+      "/assets/jlb6ha1a.jpeg",
     gallery: [
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/jlb6ha1a_WhatsApp%20Image%202026-07-30%20at%2005.46.53.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/wlcvlty0_WhatsApp%20Image%202026-07-30%20at%2005.46.56.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/9vobd1lo_WhatsApp%20Image%202026-07-30%20at%2005.46.51.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/rnzskhoj_WhatsApp%20Image%202026-07-30%20at%2005.46.49.jpeg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/y6fou013_WhatsApp%20Image%202026-07-30%20at%2005.46.48.jpeg",
+      "/assets/jlb6ha1a.jpeg",
+      "/assets/wlcvlty0.jpeg",
+      "/assets/9vobd1lo.jpeg",
+      "/assets/rnzskhoj.jpeg",
+      "/assets/y6fou013.jpeg",
     ],
     description:
       "A cosmetics showroom on M.G. Marg — rose-gold archways, glass-lit shelving and a retail experience shaped for beauty.",
@@ -255,13 +255,13 @@ export const PROJECTS = [
     statusVariant: "construction",
     area: "230 sq ft",
     image:
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/ulpjx5nj_PHOTO-2026-08-21-15-52-57.jpg",
+      "/assets/ulpjx5nj.jpg",
     gallery: [
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/ulpjx5nj_PHOTO-2026-08-21-15-52-57.jpg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/cjpa8dvd_PHOTO-2026-08-21-15-52-57.jpg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/52fyww2y_PHOTO-2026-08-21-15-52-57.jpg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/pnnjitz1_PHOTO-2026-08-21-15-52-56.jpg",
-      "https://customer-assets-cm19k8pv.emergentagent.net/job_himalayan/artifacts/xjuxlhqb_PHOTO-2026-08-21-15-52-58.jpg",
+      "/assets/ulpjx5nj.jpg",
+      "/assets/cjpa8dvd.jpg",
+      "/assets/52fyww2y.jpg",
+      "/assets/pnnjitz1.jpg",
+      "/assets/xjuxlhqb.jpg",
     ],
     description:
       "Interior design for a jewellery store on Tibet Road — considered lighting, layered display and a quietly refined retail atmosphere.",
@@ -276,10 +276,10 @@ export const PROJECTS = [
     statusVariant: "wood",
     area: "Hotel + Retail",
     image:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/k909uv7w_image.png",
+      "/assets/k909uv7w.png",
     gallery: [
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/k909uv7w_image.png",
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/kca1uij0_image.png",
+      "/assets/k909uv7w.png",
+      "/assets/kca1uij0.png",
     ],
     description:
       "Hotel Golden Heights — a mixed-use façade on Gangtok's high street, animated by porthole windows and layered chhajjas.",
@@ -293,7 +293,7 @@ export const TEAM_LEADS = {
     role: "Proprietor · Architect",
     initials: "CS",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/8d6c868i_Chhatra.png",
+      "/assets/8d6c868i.png",
     quote:
       "True architecture is measured not just in structures, but in the ethical foundation upon which they are built.",
   },
@@ -303,7 +303,7 @@ export const TEAM_LEADS = {
     role: "Studio Lead",
     initials: "SS",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/31srbk52_Saakshi%20Singhi.png",
+      "/assets/31srbk52.png",
     quote:
       "Every building we draw is a quiet promise — to the land that holds it, and the family that will live inside.",
   },
@@ -315,49 +315,49 @@ export const TEAM_GRID = [
     role: "Architect",
     initials: "AS",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/q6nwij9e_Abhiraj%20Sharma.png",
+      "/assets/q6nwij9e.png",
   },
   {
     name: "Yorika Moktan",
     role: "Architect",
     initials: "YM",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/rbygv805_Yorika%20.png",
+      "/assets/rbygv805.png",
   },
   {
     name: "Chelsea Palmo Bhutia",
     role: "Architect",
     initials: "CB",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/9i8hmnwp_Chelsea.png",
+      "/assets/9i8hmnwp.png",
   },
   {
     name: "Rikzum Rinchen Bhutia",
     role: "Architect",
     initials: "RB",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/d9z6daha_Rikzum.jpg",
+      "/assets/d9z6daha.jpg",
   },
   {
     name: "Jessica Tiruwa",
     role: "Civil Engineer",
     initials: "JT",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/ewoa0gzc_Jessica.png",
+      "/assets/ewoa0gzc.png",
   },
   {
     name: "Dawa Bhutia",
     role: "Civil Draftsman",
     initials: "DB",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/igd9drqo_Dawa%20Bhutia.png",
+      "/assets/igd9drqo.png",
   },
   {
     name: "Deepak Tamang",
     role: "Civil Engineer (Diploma)",
     initials: "DT",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/2sr0tdgy_Deepak%20Tamang.png",
+      "/assets/2sr0tdgy.png",
   },
 ];
 
@@ -367,23 +367,23 @@ export const SUPPORT_TEAM = [
     role: "Site Inspector",
     initials: "PS",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/oeli9553_Prakash.png",
+      "/assets/oeli9553.png",
   },
   {
     name: "Shalini Upadhay",
     role: "Accountant",
     initials: "SU",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/it12dn11_Shalini.png",
+      "/assets/it12dn11.png",
   },
   {
     name: "Aruna Chettri",
     role: "Manager",
     initials: "AC",
     photo:
-      "https://customer-assets.emergentagent.com/job_himalayan/artifacts/5n712pzl_Aruna%20Chettri%20.png",
+      "/assets/5n712pzl.png",
   },
-  { name: "Puspa Nirola", role: "Assistant Manager", initials: "PN", photo: "https://customer-assets.emergentagent.com/job_himalayan/artifacts/2omozoc7_Pushpa.png" },
+  { name: "Puspa Nirola", role: "Assistant Manager", initials: "PN", photo: "/assets/2omozoc7.png" },
 ];
 
 export const JOBS = [

@@ -2184,8 +2184,8 @@ button {
             #b68235 60%,
             #7a5520 92%
         );
-    -webkit-mask-image: url("https://customer-assets.emergentagent.com/job_himalayan/artifacts/xyh84fdz_image.png");
-    mask-image: url("https://customer-assets.emergentagent.com/job_himalayan/artifacts/xyh84fdz_image.png");
+    -webkit-mask-image: url("./assets/xyh84fdz.png");
+    mask-image: url("./assets/xyh84fdz.png");
     -webkit-mask-mode: luminance;
     mask-mode: luminance;
     -webkit-mask-size: contain;
@@ -3221,7 +3221,7 @@ button {
     right: -8%;
     width: 55vw;
     height: 100%;
-    background-image: url("https://customer-assets.emergentagent.com/job_himalayan/artifacts/cn7hvb4h_golden_hero_element.png");
+    background-image: url("./assets/cn7hvb4h.png");
     background-size: contain;
     background-position: right center;
     background-repeat: no-repeat;
